@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrecisionEdge — Know Your Game. Own Your Line.</title>
-    <meta name="description" content="PrecisionEdge uses AR and GPS to map your real shot dispersion patterns. Track every club. See where you actually land. Own your line.">
+    <meta name="description" content="PrecisionEdge: AR-powered golf shot tracking for players, coaches, and range days. Pre-drawn course templates, LiDAR putting, team management, dispersion patterns. 4-language support.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -18,6 +18,10 @@
             --accent-soft: #fb923c;
             --green: #22c55e;
             --green-glow: rgba(34, 197, 94, 0.12);
+            --cyan: #06b6d4;
+            --cyan-glow: rgba(6, 182, 212, 0.12);
+            --purple: #a855f7;
+            --purple-glow: rgba(168, 85, 247, 0.12);
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
@@ -26,7 +30,6 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
 
         body {
@@ -37,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* ---- Grain overlay ---- */
         body::after {
             content: '';
             position: fixed;
@@ -49,510 +51,248 @@
 
         /* ---- Nav ---- */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
+            position: fixed; top: 0; width: 100%; z-index: 100;
             padding: 1.25rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             background: rgba(10, 12, 15, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
-
-        .logo {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-        }
-
+        .logo { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1.15rem; color: var(--text-primary); letter-spacing: -0.5px; }
         .logo span { color: var(--accent); }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
         nav a:hover { color: var(--accent); }
-
         .nav-links { display: flex; gap: 2rem; align-items: center; }
-
         .nav-cta {
-            background: var(--accent) !important;
-            color: #fff !important;
-            padding: 0.5rem 1.25rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            background: var(--accent) !important; color: #fff !important;
+            padding: 0.5rem 1.25rem; border-radius: 8px;
+            font-weight: 600; font-size: 0.85rem;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        .nav-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
 
         /* ---- Hero ---- */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
+            min-height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 8rem 2rem 4rem; position: relative;
         }
-
         .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
+            content: ''; position: absolute; top: -20%; left: 50%;
+            transform: translateX(-50%); width: 800px; height: 800px;
             background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-accent);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--accent-soft);
-            margin-bottom: 2rem;
-            animation: fadeInDown 0.8s ease;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--bg-card); border: 1px solid var(--border-accent);
+            padding: 0.4rem 1rem; border-radius: 100px;
+            font-size: 0.8rem; font-weight: 500; color: var(--accent-soft);
+            margin-bottom: 2rem; animation: fadeInDown 0.8s ease;
         }
-
-        .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
+        .hero-badge .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
 
         h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 1.5rem;
+            font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 800;
+            line-height: 1.05; letter-spacing: -2px; margin-bottom: 1.5rem;
             animation: fadeInUp 0.8s ease 0.1s both;
         }
-
         h1 .accent { color: var(--accent); }
 
         .hero-sub {
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-            color: var(--text-secondary);
-            max-width: 540px;
-            margin-bottom: 3rem;
-            font-weight: 300;
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--text-secondary);
+            max-width: 600px; margin-bottom: 3rem; font-weight: 300;
             animation: fadeInUp 0.8s ease 0.25s both;
         }
-
         .hero-cta-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
             animation: fadeInUp 0.8s ease 0.4s both;
         }
-
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.9rem 2rem;
-            border-radius: 12px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.25s;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2rem; border-radius: 12px;
+            font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600;
+            text-decoration: none; border: none; cursor: pointer; transition: all 0.25s;
         }
+        .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 2px 20px var(--accent-glow); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249, 115, 22, 0.3); }
+        .btn-ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
+        .btn-ghost:hover { border-color: var(--text-muted); color: var(--text-primary); }
 
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-            box-shadow: 0 2px 20px var(--accent-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.3);
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-        }
-
-        .btn-ghost:hover {
-            border-color: var(--text-muted);
-            color: var(--text-primary);
-        }
-
-        /* ---- Screenshot placeholder ---- */
         .hero-visual {
-            margin-top: 4rem;
-            width: 100%;
-            max-width: 340px;
-            aspect-ratio: 9/19.5;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease 0.55s both;
+            margin-top: 4rem; width: 100%; max-width: 340px; aspect-ratio: 9/19.5;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 32px; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden; animation: fadeInUp 0.8s ease 0.55s both;
         }
-
         .hero-visual::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background: linear-gradient(135deg, rgba(249,115,22,0.05), transparent 60%);
         }
+        .hero-visual-text { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; z-index: 1; }
 
-        .hero-visual-text {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            font-weight: 500;
-            z-index: 1;
+        .lang-badge { display: inline-flex; gap: 0.5rem; margin-top: 2rem; font-size: 0.8rem; color: var(--text-muted); }
+        .lang-badge span {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 0.25rem 0.6rem; border-radius: 6px;
         }
 
-        /* ---- Section base ---- */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
+        /* ---- Sections ---- */
+        section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
         .section-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
+            font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700;
+            color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem;
         }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; margin-bottom: 1rem; }
+        .section-desc { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin-bottom: 3.5rem; font-weight: 300; }
 
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
+        /* ---- Mode Cards ---- */
+        .modes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .mode-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
+            transition: all 0.3s; position: relative; overflow: hidden;
         }
+        .mode-card:hover { transform: translateY(-6px); }
+        .mode-card.green { border-color: rgba(34, 197, 94, 0.3); }
+        .mode-card.green:hover { background: rgba(34, 197, 94, 0.06); box-shadow: 0 12px 40px var(--green-glow); }
+        .mode-card.cyan { border-color: rgba(6, 182, 212, 0.3); }
+        .mode-card.cyan:hover { background: rgba(6, 182, 212, 0.06); box-shadow: 0 12px 40px var(--cyan-glow); }
+        .mode-card.orange { border-color: rgba(249, 115, 22, 0.3); }
+        .mode-card.orange:hover { background: rgba(249, 115, 22, 0.06); box-shadow: 0 12px 40px var(--accent-glow); }
 
-        .section-desc {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin-bottom: 3.5rem;
-            font-weight: 300;
+        .mode-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .mode-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
+        .mode-card .mode-tag {
+            display: inline-block; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase; padding: 0.3rem 0.8rem;
+            border-radius: 6px; margin-bottom: 1rem;
         }
-
-        /* ---- Features ---- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+        .mode-card.green .mode-tag { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+        .mode-card.cyan .mode-tag { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
+        .mode-card.orange .mode-tag { background: rgba(249, 115, 22, 0.15); color: var(--accent); }
+        .mode-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; font-weight: 300; }
+        .mode-features { list-style: none; margin-top: 1.25rem; text-align: left; }
+        .mode-features li {
+            color: var(--text-secondary); font-size: 0.85rem; font-weight: 400;
+            padding: 0.35rem 0; padding-left: 1.25rem; position: relative;
         }
+        .mode-features li::before {
+            content: ''; position: absolute; left: 0; top: 0.7rem;
+            width: 6px; height: 6px; border-radius: 50%;
+        }
+        .mode-card.green .mode-features li::before { background: var(--green); }
+        .mode-card.cyan .mode-features li::before { background: var(--cyan); }
+        .mode-card.orange .mode-features li::before { background: var(--accent); }
 
+        /* ---- Features Grid ---- */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 2rem; transition: all 0.3s;
+            position: relative; overflow: hidden;
         }
-
-        .feature-card:hover {
-            border-color: var(--border-accent);
-            background: var(--bg-card-hover);
-            transform: translateY(-4px);
-        }
-
+        .feature-card:hover { border-color: var(--border-accent); background: var(--bg-card-hover); transform: translateY(-4px); }
         .feature-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
             background: linear-gradient(90deg, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
+            opacity: 0; transition: opacity 0.3s;
         }
-
         .feature-card:hover::after { opacity: 1; }
-
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-glow);
-            border: 1px solid var(--border-accent);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 1.25rem;
+            width: 48px; height: 48px; background: var(--accent-glow);
+            border: 1px solid var(--border-accent); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; margin-bottom: 1.25rem;
         }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
 
-        .feature-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        /* ---- How it works ---- */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            counter-reset: step;
-        }
-
-        .step {
-            position: relative;
-            padding: 2rem;
-            counter-increment: step;
-        }
-
+        /* ---- Steps ---- */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; counter-reset: step; }
+        .step { position: relative; padding: 2rem; counter-increment: step; }
         .step::before {
-            content: counter(step);
-            font-family: 'Space Mono', monospace;
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--accent);
-            opacity: 0.15;
-            position: absolute;
-            top: 0;
-            left: 1.5rem;
-            line-height: 1;
+            content: counter(step); font-family: 'Space Mono', monospace;
+            font-size: 4rem; font-weight: 700; color: var(--accent); opacity: 0.15;
+            position: absolute; top: 0; left: 1.5rem; line-height: 1;
         }
+        .step h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1.5rem; }
+        .step p { color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; }
 
-        .step h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            margin-top: 1.5rem;
+        /* ---- Course Builder Spotlight ---- */
+        .spotlight {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 20px; padding: 3rem; margin-top: 2rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
         }
-
-        .step p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 300;
+        .spotlight-text h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .spotlight-text p { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; font-weight: 300; margin-bottom: 1rem; }
+        .spotlight-visual {
+            background: rgba(6, 182, 212, 0.06); border: 1px solid rgba(6, 182, 212, 0.15);
+            border-radius: 16px; padding: 2rem; text-align: center;
         }
+        .template-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+        }
+        .template-tile {
+            background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 8px; padding: 1rem 0.5rem; text-align: center;
+            font-size: 0.7rem; color: var(--text-secondary); font-weight: 500;
+        }
+        .template-tile .par { color: #facc15; font-weight: 700; font-size: 0.65rem; display: block; margin-top: 0.25rem; }
 
         /* ---- CTA / Signup ---- */
-        .cta-section {
-            text-align: center;
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
+        .cta-section { text-align: center; padding: 6rem 2rem; position: relative; }
         .cta-section::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 400px;
+            content: ''; position: absolute; bottom: 0; left: 50%;
+            transform: translateX(-50%); width: 600px; height: 400px;
             background: radial-gradient(ellipse, var(--green-glow), transparent 70%);
             pointer-events: none;
         }
+        .cta-section h2 { margin-bottom: 0.75rem; }
+        .cta-section .section-desc { margin: 0 auto 2.5rem; }
 
-        .cta-section h2 {
-            margin-bottom: 0.75rem;
-        }
-
-        .cta-section .section-desc {
-            margin: 0 auto 2.5rem;
-        }
-
-        /* Signup form */
         .signup-form {
-            display: flex;
-            gap: 0.75rem;
-            max-width: 460px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex; gap: 0.75rem; max-width: 460px; margin: 0 auto;
+            flex-wrap: wrap; justify-content: center;
         }
-
         .signup-form input[type="email"] {
-            flex: 1;
-            min-width: 240px;
-            padding: 0.9rem 1.25rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text-primary);
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.2s;
+            flex: 1; min-width: 240px; padding: 0.9rem 1.25rem;
+            border-radius: 12px; border: 1px solid var(--border);
+            background: var(--bg-card); color: var(--text-primary);
+            font-family: 'Outfit', sans-serif; font-size: 1rem;
+            outline: none; transition: border-color 0.2s;
         }
+        .signup-form input[type="email"]::placeholder { color: var(--text-muted); }
+        .signup-form input[type="email"]:focus { border-color: var(--accent); }
+        .signup-form button { white-space: nowrap; }
+        .form-note { margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); }
+        .form-success { display: none; color: var(--green); font-weight: 500; margin-top: 1rem; }
 
-        .signup-form input[type="email"]::placeholder {
-            color: var(--text-muted);
-        }
-
-        .signup-form input[type="email"]:focus {
-            border-color: var(--accent);
-        }
-
-        .signup-form button {
-            white-space: nowrap;
-        }
-
-        .form-note {
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .form-success {
-            display: none;
-            color: var(--green);
-            font-weight: 500;
-            margin-top: 1rem;
-        }
-
-        /* App Store button (hidden by default — flip when ready) */
         .appstore-btn {
-            display: none; /* Change to inline-flex when live on App Store */
-            align-items: center;
-            gap: 0.75rem;
-            background: #fff;
-            color: #000;
-            padding: 0.8rem 1.75rem;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: transform 0.2s;
+            display: none; align-items: center; gap: 0.75rem;
+            background: #fff; color: #000; padding: 0.8rem 1.75rem;
+            border-radius: 14px; font-weight: 600; font-size: 1rem;
+            text-decoration: none; transition: transform 0.2s;
         }
-
         .appstore-btn:hover { transform: translateY(-2px); }
-
         .appstore-btn svg { width: 28px; height: 28px; }
 
         /* ---- Footer ---- */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-        }
-
+        footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
+        .footer-logo { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem; }
         .footer-logo span { color: var(--accent); }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        footer .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        footer .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-
+        footer p { color: var(--text-muted); font-size: 0.85rem; }
+        footer .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 1rem; }
+        footer .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
         footer .footer-links a:hover { color: var(--accent); }
 
-        /* ---- Language badge ---- */
-        .lang-badge {
-            display: inline-flex;
-            gap: 0.5rem;
-            margin-top: 2rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .lang-badge span {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-        }
-
         /* ---- Animations ---- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-16px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ---- Responsive ---- */
         @media (max-width: 768px) {
@@ -562,8 +302,10 @@
             h1 { letter-spacing: -1px; }
             .hero { padding: 7rem 1.25rem 3rem; }
             .hero-visual { max-width: 260px; }
+            .modes-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
             .steps { grid-template-columns: 1fr; }
+            .spotlight { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -573,6 +315,7 @@
 <nav>
     <div class="logo">Precision<span>Edge</span></div>
     <div class="nav-links">
+        <a href="#modes">Modes</a>
         <a href="#features">Features</a>
         <a href="#how">How It Works</a>
         <a href="#signup" class="nav-cta">Join Beta</a>
@@ -589,24 +332,123 @@
     <h1>Know your game.<br><span class="accent">Own your line.</span></h1>
 
     <p class="hero-sub">
-        AR-powered shot tracking that maps your real dispersion patterns.
-        See where you actually land — club by club, shot by shot.
+        AR-powered shot tracking for players and coaches.
+        Pre-drawn course templates, LiDAR putting, team management,
+        and real dispersion data — all from your iPhone.
     </p>
 
     <div class="hero-cta-group">
         <a href="#signup" class="btn btn-primary">Join the Beta</a>
-        <a href="#features" class="btn btn-ghost">See Features</a>
+        <a href="#modes" class="btn btn-ghost">See What's Inside</a>
     </div>
 
-    <!-- Phone mockup placeholder — swap with real screenshot later -->
     <div class="hero-visual">
         <span class="hero-visual-text">App Screenshot Coming Soon</span>
     </div>
 
     <div class="lang-badge">
-        <span>🇺🇸 English</span>
-        <span>🇯🇵 日本語</span>
-        <span>🇰🇷 한국어</span>
+        <span>English</span>
+        <span>Espa&ntilde;ol</span>
+        <span>&#26085;&#26412;&#35486;</span>
+        <span>&#54620;&#44397;&#50612;</span>
+    </div>
+</section>
+
+<!-- Three Modes -->
+<section id="modes">
+    <div class="reveal">
+        <div class="section-label">Three Modes</div>
+        <h2>One app. Three ways to use it.</h2>
+        <p class="section-desc">
+            PrecisionEdge opens to a mode selector every time. Pick your role and go.
+        </p>
+    </div>
+
+    <div class="modes-grid">
+        <div class="mode-card green reveal">
+            <div class="mode-icon">&#127947;&#65039;</div>
+            <span class="mode-tag">Player</span>
+            <h3>Player Mode</h3>
+            <p>Solo shot tracking with AR and GPS. Build your personal club data one shot at a time.</p>
+            <ul class="mode-features">
+                <li>AR + GPS carry distance and lateral deviation</li>
+                <li>Club-by-club dispersion patterns</li>
+                <li>AR trajectory overlays on the range</li>
+                <li>2D dispersion maps and target landing views</li>
+                <li>Smart club distance suggestions</li>
+            </ul>
+        </div>
+
+        <div class="mode-card cyan reveal">
+            <div class="mode-icon">&#129504;</div>
+            <span class="mode-tag">Coach</span>
+            <h3>Coach Mode</h3>
+            <p>Manage your team, track every player's shots on the range and course, review rounds later.</p>
+            <ul class="mode-features">
+                <li>Team roster with up to 12 color-coded players</li>
+                <li>Range sessions with per-player shot tracking</li>
+                <li>Course play with pre-drawn hole templates</li>
+                <li>Save courses and load them instantly</li>
+                <li>Putting green with numbered shot sequence</li>
+                <li>Session history with full round review</li>
+            </ul>
+        </div>
+
+        <div class="mode-card orange reveal">
+            <div class="mode-icon">&#9971;&#65039;</div>
+            <span class="mode-tag">Range Day</span>
+            <h3>Range Day Mode</h3>
+            <p>Quick-fire team sessions at the range. Pick players, assign clubs, and track shots fast.</p>
+            <ul class="mode-features">
+                <li>Streamlined for driving range speed</li>
+                <li>Per-player club assignments</li>
+                <li>Rapid shot logging</li>
+                <li>Session naming and review</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Course Builder Spotlight -->
+<section id="course-builder">
+    <div class="reveal">
+        <div class="section-label">Course Play</div>
+        <h2>Build your course in two minutes flat</h2>
+        <p class="section-desc">
+            Coach looks at the back of the scorecard, picks a hole layout and yardage
+            for each hole, and locks in the entire course before the round starts.
+            Every hole loads instantly during play.
+        </p>
+    </div>
+
+    <div class="spotlight reveal">
+        <div class="spotlight-text">
+            <h3>18 Pre-Drawn Hole Templates</h3>
+            <p>
+                Smooth bezier-curved fairways, water hazards, bunkers, and greens.
+                Par 3s, par 4s, par 5s, doglegs left and right, water carries,
+                island greens, and double doglegs — all with organic shapes
+                that look like real holes.
+            </p>
+            <p>
+                Save your course for later. Load it next week without rebuilding.
+                Name your rounds and review them from the dashboard
+                with the same template visuals and shot data overlaid.
+            </p>
+        </div>
+        <div class="spotlight-visual">
+            <div class="template-grid">
+                <div class="template-tile">Straight<span class="par">PAR 3</span></div>
+                <div class="template-tile">Dogleg L<span class="par">PAR 4</span></div>
+                <div class="template-tile">Dogleg R<span class="par">PAR 4</span></div>
+                <div class="template-tile">Water Carry<span class="par">PAR 3</span></div>
+                <div class="template-tile">Double Dog<span class="par">PAR 5</span></div>
+                <div class="template-tile">Island Green<span class="par">PAR 3</span></div>
+                <div class="template-tile">Long Par 5<span class="par">PAR 5</span></div>
+                <div class="template-tile">Bunker Right<span class="par">PAR 4</span></div>
+                <div class="template-tile">+ 10 more<span class="par">PAR 3-5</span></div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -623,28 +465,40 @@
 
     <div class="features-grid">
         <div class="feature-card reveal">
-            <div class="feature-icon">📡</div>
+            <div class="feature-icon">&#128225;</div>
             <h3>AR + GPS Shot Capture</h3>
             <p>Mark your ball, pick your club, hit it, walk to the landing spot.
-               PrecisionEdge measures carry distance and lateral deviation automatically.</p>
+               Carry distance and lateral deviation measured automatically.</p>
         </div>
         <div class="feature-card reveal">
-            <div class="feature-icon">🎯</div>
+            <div class="feature-icon">&#127919;</div>
             <h3>Dispersion Patterns</h3>
-            <p>See your real shot spread for every club — in 2D maps, target landing views,
-               and immersive AR overlays right on the course.</p>
+            <p>See your real shot spread for every club — in AR trajectory overlays,
+               2D dispersion maps, and target landing views.</p>
         </div>
         <div class="feature-card reveal">
-            <div class="feature-icon">📊</div>
-            <h3>Club-by-Club Stats</h3>
-            <p>Mean carry, spread, long/short tendencies, lateral bias. Know exactly
-               what each club does — not what you think it does.</p>
+            <div class="feature-icon">&#128243;</div>
+            <h3>LiDAR Putting</h3>
+            <p>On devices with LiDAR, the putting green comes alive.
+               Precision distance tracking on the green with numbered shot sequences.</p>
         </div>
         <div class="feature-card reveal">
-            <div class="feature-icon">🏌️</div>
-            <h3>Course-Aware Targeting</h3>
-            <p>Auto-detects nearby courses and holes. Sets target distances from course data
-               so you can see how you perform relative to the pin.</p>
+            <div class="feature-icon">&#128101;</div>
+            <h3>Team Management</h3>
+            <p>Up to 12 color-coded players per team. Track every player's shots,
+               assign clubs, and review per-player stats across sessions.</p>
+        </div>
+        <div class="feature-card reveal">
+            <div class="feature-icon">&#128190;</div>
+            <h3>Save Everything</h3>
+            <p>Courses save for reuse. Rounds save with names for future review.
+               Session history lives on the dashboard — tap to replay any round.</p>
+        </div>
+        <div class="feature-card reveal">
+            <div class="feature-icon">&#127760;</div>
+            <h3>4-Language Support</h3>
+            <p>Full interface in English, Spanish, Japanese, and Korean.
+               Switch languages anytime from any mode.</p>
         </div>
     </div>
 </section>
@@ -653,27 +507,33 @@
 <section id="how">
     <div class="reveal">
         <div class="section-label">How It Works</div>
-        <h2>Three taps. Real data.</h2>
+        <h2>Pick your mode. Go play.</h2>
         <p class="section-desc">
-            No launch monitor. No sensors. Just your iPhone on the course.
+            No launch monitor. No sensors. Just your iPhone on the course or range.
         </p>
     </div>
 
     <div class="steps">
         <div class="step reveal">
-            <h3>Mark your ball</h3>
-            <p>Stand behind the ball, aim at your target, and tap. PrecisionEdge locks your
-               position, bearing, and club selection.</p>
+            <h3>Choose your mode</h3>
+            <p>Player for solo practice, Coach to run your team,
+               or Range Day for quick group sessions at the driving range.</p>
         </div>
         <div class="step reveal">
-            <h3>Hit it</h3>
-            <p>Take your shot. Tap "I Hit It" and walk to where it landed.
-               The app tracks your movement via GPS and AR.</p>
+            <h3>Set up your session</h3>
+            <p>Player: pick a club and target distance.
+               Coach: build your course from templates or start a range session.
+               Range Day: assign clubs and go.</p>
         </div>
         <div class="step reveal">
-            <h3>Mark the landing</h3>
-            <p>Aim at the ball again and tap. Carry distance, lateral deviation, and
-               target accuracy are calculated and saved instantly.</p>
+            <h3>Track shots</h3>
+            <p>AR and GPS do the heavy lifting. Tap where the ball lands,
+               and PrecisionEdge calculates carry, deviation, and accuracy.</p>
+        </div>
+        <div class="step reveal">
+            <h3>Review your data</h3>
+            <p>Named sessions save to history. Pull up any round,
+               see shot-by-shot data overlaid on hole templates or dispersion maps.</p>
         </div>
     </div>
 </section>
@@ -685,16 +545,15 @@
         <h2>Get in before launch</h2>
         <p class="section-desc">
             Join the TestFlight beta and help shape PrecisionEdge.
-            Available for iPhone with iOS 17+.
+            Available for iPhone with iOS 16+.
         </p>
 
-        <!-- Beta signup form (Formspree — replace YOUR_FORM_ID) -->
         <form class="signup-form" id="betaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input type="email" name="email" placeholder="your@email.com" required>
             <button type="submit" class="btn btn-primary">Join Beta</button>
         </form>
         <p class="form-note">No spam. Just a TestFlight invite when your spot is ready.</p>
-        <p class="form-success" id="formSuccess">🎉 You're on the list! Watch for a TestFlight invite.</p>
+        <p class="form-success" id="formSuccess">You're on the list. Watch for a TestFlight invite.</p>
 
         <!-- App Store button — uncomment when live
         <a href="https://apps.apple.com/app/YOUR_APP_ID" class="appstore-btn">
@@ -711,49 +570,29 @@
     <p>&copy; 2026 PrecisionEdge Golf. All rights reserved.</p>
     <div class="footer-links">
         <a href="mailto:hello@precisionedge.golf">Contact</a>
-        <a href="#">Privacy</a>
+        <a href="privacy.html">Privacy</a>
         <a href="#">Terms</a>
     </div>
 </footer>
 
 <script>
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); }
         });
     }, { threshold: 0.15 });
-
     reveals.forEach(el => observer.observe(el));
 
-    // Form handling
     const form = document.getElementById('betaForm');
     const success = document.getElementById('formSuccess');
-
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const data = new FormData(form);
-
         try {
-            const res = await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (res.ok) {
-                form.style.display = 'none';
-                document.querySelector('.form-note').style.display = 'none';
-                success.style.display = 'block';
-            }
-        } catch (err) {
-            // Fallback — just show success anyway (form likely still submitted)
-            form.style.display = 'none';
-            success.style.display = 'block';
-        }
+            const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+            if (res.ok) { form.style.display = 'none'; document.querySelector('.form-note').style.display = 'none'; success.style.display = 'block'; }
+        } catch (err) { form.style.display = 'none'; success.style.display = 'block'; }
     });
 </script>
 
