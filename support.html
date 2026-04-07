@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — PrecisionEdge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f0c;
+            --bg-card: #111a14;
+            --bg-card-hover: #162019;
+            --text-primary: #e8ede9;
+            --text-secondary: #8a9b8e;
+            --text-dim: #5a6b5e;
+            --accent: #4ade80;
+            --accent-dim: rgba(74, 222, 128, 0.12);
+            --border: rgba(74, 222, 128, 0.08);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle grain texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-dim);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .brand-name {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        /* Table of Contents */
+        .toc {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .toc-title {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        @media (max-width: 520px) {
+            .toc-list { grid-template-columns: 1fr; }
+        }
+
+        .toc-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: block;
+            transition: all 0.2s;
+        }
+
+        .toc-list a:hover {
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .toc-list .toc-num {
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .section-num {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: 0.06em;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* FAQ Item */
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: background 0.2s;
+        }
+
+        .faq-item:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-question::before {
+            content: '▶';
+            font-size: 12px;
+            color: var(--accent);
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .faq-item.open .faq-question::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* Highlight box */
+        .highlight {
+            background: var(--accent-dim);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .highlight p {
+            color: var(--text-primary);
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .highlight strong {
+            color: var(--accent);
+        }
+
+        /* List */
+        ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+
+        /* Contact card */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--accent-dim);
+            transition: border-color 0.2s;
+        }
+
+        .contact-card a:hover {
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Fade in */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeUp 0.5s ease both;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <a href="index.html" class="brand">
+            <div class="brand-icon">⛳</div>
+            <span class="brand-name">PrecisionEdge</span>
+        </a>
+        <h1>Support</h1>
+        <p class="subtitle">Help with GPS tracking, AR, and more</p>
+    </header>
+
+    <nav class="toc">
+        <p class="toc-title">Contents</p>
+        <ul class="toc-list">
+            <li><a href="#gps-accuracy"><span class="toc-num">01</span> GPS Accuracy Tips</a></li>
+            <li><a href="#ar-camera"><span class="toc-num">02</span> AR Camera Issues</a></li>
+            <li><a href="#club-averages"><span class="toc-num">03</span> Club Averages</a></li>
+            <li><a href="#subscription"><span class="toc-num">04</span> Subscription & Trial</a></li>
+            <li><a href="#coach-mode"><span class="toc-num">05</span> Coach Mode Setup</a></li>
+            <li><a href="#contact"><span class="toc-num">06</span> Contact Support</a></li>
+        </ul>
+    </nav>
+
+    <section id="gps-accuracy">
+        <span class="section-num">01</span>
+        <h2>GPS Accuracy Tips</h2>
+        <div class="highlight">
+            <p><strong>GPS works best outdoors in clear conditions.</strong> Accuracy depends on satellite signal strength and atmospheric conditions.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Why are my shot distances inconsistent?</div>
+            <div class="faq-answer">GPS accuracy varies based on several factors: number of visible satellites, cloud cover, buildings or trees blocking the signal, and the device's GPS chip quality. Most iOS devices have accurate GPS within 5-10 feet. Take shots when you have a clear sky view for best results.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I improve GPS accuracy?</div>
+            <div class="faq-answer">Move away from trees, buildings, and structures that block satellite signals. Allow the app a few moments after launching to lock onto satellites — you'll see the GPS indicator at the top of the screen. Play in open areas of the course. Avoid playing during overcast or stormy weather.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What if the app can't lock onto GPS?</div>
+            <div class="faq-answer">Make sure Location Services are enabled for PrecisionEdge in Settings > Privacy > Location Services. Restart the app if it's struggling to lock in. Allow up to 30 seconds for the first GPS fix of the day. If problems persist, restart your device.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Does PrecisionEdge use assisted GPS (A-GPS)?</div>
+            <div class="faq-answer">Yes. The app downloads Wi-Fi and cellular data to help your device lock onto satellites faster. This requires internet access but improves GPS initialization. After the initial lock, the app works offline.</div>
+        </div>
+    </section>
+
+    <section id="ar-camera">
+        <span class="section-num">02</span>
+        <h2>AR Camera Issues</h2>
+        <div class="highlight">
+            <p><strong>AR requires a compatible device and proper permissions.</strong> Most modern iPhones and iPads support ARKit-based features.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Why isn't AR working?</div>
+            <div class="faq-answer">Check that Camera permission is granted for PrecisionEdge in Settings > Privacy > Camera. Make sure your device supports ARKit (iPhone 6s or later, iPad Air 2 or later). AR requires well-lit conditions with visible surface features—avoid low-light or blank walls.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Why do my shots look blurry or shaky in AR?</div>
+            <div class="faq-answer">This usually means the camera can't track the ground surface well. Ensure the app is pointing at the ground with varied texture (grass, dirt, pavement). Move slowly and let the camera stabilize. Avoid pointing straight down or at sky.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How many shots can I visualize in AR?</div>
+            <div class="faq-answer">Up to 25 shots are stored for a round. In the AR view, up to 5 shots are drawn and visible at once. You can cycle through your shots to see different ones in AR.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Does AR require an internet connection?</div>
+            <div class="faq-answer">No. AR rendering happens entirely on your device. You can use AR mode offline.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What's LiDAR putting mode?</div>
+            <div class="faq-answer">LiDAR (available on iPhone 12 Pro/Max, iPhone 13 Pro/Max, and later) provides superior depth sensing for putting greens. The putting mode uses LiDAR to map green topography with centimeter-level precision, helping you visualize slope and read breaks more accurately.</div>
+        </div>
+    </section>
+
+    <section id="club-averages">
+        <span class="section-num">03</span>
+        <h2>Club Averages</h2>
+        <div class="highlight">
+            <p><strong>Build club profiles from your own data.</strong> The more shots you track, the more accurate your club averages become.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How does PrecisionEdge calculate club averages?</div>
+            <div class="faq-answer">Club averages are calculated from all shots you've logged with each club. The app computes the mean carry distance across all shots with that club. The more shots you log, the more statistically reliable your average becomes.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What are club mismatch warnings?</div>
+            <div class="faq-answer">If you select a club whose average distance doesn't match your target, the app alerts you. For example, if your 7-iron averages 165 yards but the hole is 145 yards away, PrecisionEdge suggests a different club to better match the distance.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How many shots do I need to build a reliable club average?</div>
+            <div class="faq-answer">A good rule of thumb is at least 10-15 shots per club to establish a baseline. 30+ shots gives you a solid statistical profile. Your averages will update automatically as you log more shots.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I manually adjust my club averages?</div>
+            <div class="faq-answer">Club averages are calculated automatically from your logged shot data. If you believe an average is inaccurate, review your recent shots with that club or delete outliers to recalibrate.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I see my dispersion pattern for each club?</div>
+            <div class="faq-answer">Yes. In the AR view, you can filter shots by club to see how your shots with that club spread across the course. This helps identify consistency issues or bias in one direction.</div>
+        </div>
+    </section>
+
+    <section id="subscription">
+        <span class="section-num">04</span>
+        <h2>Subscription & Trial</h2>
+        <div class="highlight">
+            <p><strong>10-day free trial. No credit card required.</strong> Cancel anytime.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is PrecisionEdge really free for high schools?</div>
+            <div class="faq-answer">Yes. High school coaches can verify their school and receive free access for their team. Verification is done through a simple school email or administrative verification process in the app.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I start the 10-day free trial?</div>
+            <div class="faq-answer">When you launch the app, you're automatically enrolled in a 10-day free trial. No credit card is required to start. You'll receive a reminder before the trial ends so you can decide whether to subscribe or cancel.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What happens when my trial ends?</div>
+            <div class="faq-answer">You'll be prompted to subscribe to continue using the app. If you cancel or let your subscription lapse, your shot data remains on your device. You can re-subscribe at any time.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I cancel my subscription?</div>
+            <div class="faq-answer">Yes. You can manage and cancel your subscription through the App Store in Settings > [Your Name] > Subscriptions > PrecisionEdge. Cancellation is immediate and effective at the next renewal date.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Will I lose my data if I cancel?</div>
+            <div class="faq-answer">No. Your shot data is stored on your device and will not be deleted if you cancel. You can re-subscribe later and your data will still be there.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What languages does the app support?</div>
+            <div class="faq-answer">PrecisionEdge is available in English, Spanish, Japanese, and Korean. The app will use your device's language setting automatically.</div>
+        </div>
+    </section>
+
+    <section id="coach-mode">
+        <span class="section-num">05</span>
+        <h2>Coach Mode Setup</h2>
+        <div class="highlight">
+            <p><strong>Coach Mode lets you manage your team's data in one place.</strong> Track up to 12 players per team.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I enable Coach Mode?</div>
+            <div class="faq-answer">Coach Mode is available to verified coaches. Go to Settings > Coach Mode and follow the verification process. You'll need to provide your school email or administrative credentials. Once verified, you can create a team and add players.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How many players can I add to my team?</div>
+            <div class="faq-answer">Each team can have up to 12 players. If you need to manage more players, you can create additional teams.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do players join my team?</div>
+            <div class="faq-answer">Players receive a team code or invitation link from you. They enter the code in their own app to join your team. Once joined, their shot data syncs to the team view (with their privacy settings respected).</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can players see each other's data?</div>
+            <div class="faq-answer">Players can see their own data and team aggregate statistics (team averages, trends), but individual player data is private by default. You can adjust visibility settings in Coach Mode to allow peer comparison if desired.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What can I view in Coach Mode?</div>
+            <div class="faq-answer">In Coach Mode you can view: each player's club averages, round summaries, dispersion patterns, progress over time, and team-wide statistics. You can also export data for records or analysis.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is demo mode available for coaches?</div>
+            <div class="faq-answer">Yes. Demo Mode lets you explore Coach Mode features with sample data without needing a live team. This is useful for training or evaluating the app before rolling it out to your team.</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <span class="section-num">06</span>
+        <h2>Contact Support</h2>
+        <p>Have a question we didn't answer? Get in touch. We're here to help.</p>
+        <div class="contact-card">
+            <p style="font-size: 16px; color: var(--text-primary); margin-bottom: 12px;"><strong>Email</strong></p>
+            <p><a href="mailto:enyawrellim@gmail.com">enyawrellim@gmail.com</a></p>
+            <p style="color: var(--text-dim); font-size: 13px; margin-top: 16px;">We typically respond within 24 hours.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 PrecisionEdge Golf LLC. All rights reserved.</p>
+        <p style="margin-top: 8px;"><a href="index.html">Home</a> • <a href="privacy.html">Privacy</a></p>
+    </footer>
+
+</div>
+
+<script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            item.classList.toggle('open');
+        });
+    });
+</script>
+
+</body>
+</html>
