@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrecisionEdge — Know Your Game. Own Your Line.</title>
-    <meta name="description" content="PrecisionEdge: AR-powered golf shot tracking for players, coaches, and range days. Pre-drawn course templates, LiDAR putting, team management, dispersion patterns. 4-language support.">
+    <title>PrecisionEdge — 게임을 알고, 라인을 그리다.</title>
+    <meta name="description" content="PrecisionEdge: 플레이어, 코치, 레인지 데이를 위한 AR 골프 샷 트래킹 앱. 미리 그려진 코스 템플릿, LiDAR 퍼팅, 팀 관리, 분산 패턴. 4개 언어 지원.">
     <link rel="alternate" hreflang="en" href="https://precisionedgegolf.com/" />
     <link rel="alternate" hreflang="es" href="https://precisionedgegolf.com/es/" />
     <link rel="alternate" hreflang="ja" href="https://precisionedgegolf.com/ja/" />
@@ -12,7 +12,7 @@
     <link rel="alternate" hreflang="x-default" href="https://precisionedgegolf.com/" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-deep: #0a0c0f;
@@ -38,10 +38,10 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Noto Sans KR', 'Outfit', sans-serif;
             background: var(--bg-deep);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
@@ -54,7 +54,6 @@
             z-index: 9999;
         }
 
-        /* ---- Nav ---- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
             padding: 1.25rem 2rem;
@@ -83,7 +82,6 @@
         .lang-switch a:hover { color: var(--accent) !important; background: var(--bg-card); }
         .lang-switch a.active { color: var(--text-primary) !important; background: var(--bg-card); border: 1px solid var(--border-accent); }
 
-        /* ---- Hero ---- */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
@@ -105,15 +103,15 @@
         .hero-badge .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
 
         h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 800;
-            line-height: 1.05; letter-spacing: -2px; margin-bottom: 1.5rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800;
+            line-height: 1.2; letter-spacing: -1px; margin-bottom: 1.5rem;
             animation: fadeInUp 0.8s ease 0.1s both;
         }
         h1 .accent { color: var(--accent); }
 
         .hero-sub {
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--text-secondary);
-            max-width: 600px; margin-bottom: 3rem; font-weight: 300;
+            font-size: clamp(1.05rem, 2.2vw, 1.25rem); color: var(--text-secondary);
+            max-width: 640px; margin-bottom: 3rem; font-weight: 400;
             animation: fadeInUp 0.8s ease 0.25s both;
         }
         .hero-cta-group {
@@ -123,7 +121,7 @@
         .btn {
             display: inline-flex; align-items: center; gap: 0.5rem;
             padding: 0.9rem 2rem; border-radius: 12px;
-            font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600;
+            font-family: inherit; font-size: 1rem; font-weight: 600;
             text-decoration: none; border: none; cursor: pointer; transition: all 0.25s;
         }
         .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 2px 20px var(--accent-glow); }
@@ -149,16 +147,14 @@
             padding: 0.25rem 0.6rem; border-radius: 6px;
         }
 
-        /* ---- Sections ---- */
         section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
         .section-label {
             font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700;
             color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem;
         }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; margin-bottom: 1rem; }
-        .section-desc { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin-bottom: 3.5rem; font-weight: 300; }
+        h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 1rem; line-height: 1.4; }
+        .section-desc { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin-bottom: 3.5rem; font-weight: 400; }
 
-        /* ---- Mode Cards ---- */
         .modes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .mode-card {
             background: var(--bg-card); border: 1px solid var(--border);
@@ -176,28 +172,27 @@
         .mode-icon { font-size: 2.5rem; margin-bottom: 1rem; }
         .mode-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
         .mode-card .mode-tag {
-            display: inline-block; font-size: 0.7rem; font-weight: 700;
-            letter-spacing: 2px; text-transform: uppercase; padding: 0.3rem 0.8rem;
+            display: inline-block; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 1px; padding: 0.3rem 0.8rem;
             border-radius: 6px; margin-bottom: 1rem;
         }
         .mode-card.green .mode-tag { background: rgba(34, 197, 94, 0.15); color: var(--green); }
         .mode-card.cyan .mode-tag { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
         .mode-card.orange .mode-tag { background: rgba(249, 115, 22, 0.15); color: var(--accent); }
-        .mode-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; font-weight: 300; }
+        .mode-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; font-weight: 400; }
         .mode-features { list-style: none; margin-top: 1.25rem; text-align: left; }
         .mode-features li {
             color: var(--text-secondary); font-size: 0.85rem; font-weight: 400;
-            padding: 0.35rem 0; padding-left: 1.25rem; position: relative;
+            padding: 0.4rem 0; padding-left: 1.25rem; position: relative; line-height: 1.6;
         }
         .mode-features li::before {
-            content: ''; position: absolute; left: 0; top: 0.7rem;
+            content: ''; position: absolute; left: 0; top: 0.85rem;
             width: 6px; height: 6px; border-radius: 50%;
         }
         .mode-card.green .mode-features li::before { background: var(--green); }
         .mode-card.cyan .mode-features li::before { background: var(--cyan); }
         .mode-card.orange .mode-features li::before { background: var(--accent); }
 
-        /* ---- Features Grid ---- */
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .feature-card {
             background: var(--bg-card); border: 1px solid var(--border);
@@ -217,10 +212,9 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 1.4rem; margin-bottom: 1.25rem;
         }
-        .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; }
-        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; font-weight: 400; }
 
-        /* ---- Steps ---- */
         .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; counter-reset: step; }
         .step { position: relative; padding: 2rem; counter-increment: step; }
         .step::before {
@@ -228,17 +222,16 @@
             font-size: 4rem; font-weight: 700; color: var(--accent); opacity: 0.15;
             position: absolute; top: 0; left: 1.5rem; line-height: 1;
         }
-        .step h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1.5rem; }
-        .step p { color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; }
+        .step h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; margin-top: 1.5rem; }
+        .step p { color: var(--text-secondary); font-size: 0.95rem; font-weight: 400; line-height: 1.7; }
 
-        /* ---- Course Builder Spotlight ---- */
         .spotlight {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 20px; padding: 3rem; margin-top: 2rem;
             display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
         }
         .spotlight-text h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
-        .spotlight-text p { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; font-weight: 300; margin-bottom: 1rem; }
+        .spotlight-text p { color: var(--text-secondary); font-size: 1rem; line-height: 1.8; font-weight: 400; margin-bottom: 1rem; }
         .spotlight-visual {
             background: rgba(6, 182, 212, 0.06); border: 1px solid rgba(6, 182, 212, 0.15);
             border-radius: 16px; padding: 2rem; text-align: center;
@@ -253,7 +246,6 @@
         }
         .template-tile .par { color: #facc15; font-weight: 700; font-size: 0.65rem; display: block; margin-top: 0.25rem; }
 
-        /* ---- CTA / Signup ---- */
         .cta-section { text-align: center; padding: 6rem 2rem; position: relative; }
         .cta-section::before {
             content: ''; position: absolute; bottom: 0; left: 50%;
@@ -272,7 +264,7 @@
             flex: 1; min-width: 240px; padding: 0.9rem 1.25rem;
             border-radius: 12px; border: 1px solid var(--border);
             background: var(--bg-card); color: var(--text-primary);
-            font-family: 'Outfit', sans-serif; font-size: 1rem;
+            font-family: inherit; font-size: 1rem;
             outline: none; transition: border-color 0.2s;
         }
         .signup-form input[type="email"]::placeholder { color: var(--text-muted); }
@@ -281,16 +273,6 @@
         .form-note { margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); }
         .form-success { display: none; color: var(--green); font-weight: 500; margin-top: 1rem; }
 
-        .appstore-btn {
-            display: none; align-items: center; gap: 0.75rem;
-            background: #fff; color: #000; padding: 0.8rem 1.75rem;
-            border-radius: 14px; font-weight: 600; font-size: 1rem;
-            text-decoration: none; transition: transform 0.2s;
-        }
-        .appstore-btn:hover { transform: translateY(-2px); }
-        .appstore-btn svg { width: 28px; height: 28px; }
-
-        /* ---- Footer ---- */
         footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
         .footer-logo { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem; }
         .footer-logo span { color: var(--accent); }
@@ -299,19 +281,17 @@
         footer .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
         footer .footer-links a:hover { color: var(--accent); }
 
-        /* ---- Animations ---- */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* ---- Responsive ---- */
         @media (max-width: 768px) {
             nav { padding: 1rem 1.25rem; }
+            .nav-links { gap: 1rem; }
             .nav-links a:not(.nav-cta) { display: none; }
             section { padding: 4rem 1.25rem; }
-            h1 { letter-spacing: -1px; }
             .hero { padding: 7rem 1.25rem 3rem; }
             .hero-visual { max-width: 260px; }
             .modes-grid { grid-template-columns: 1fr; }
@@ -323,45 +303,43 @@
 </head>
 <body>
 
-<!-- Nav -->
 <nav>
     <div class="logo">Precision<span>Edge</span></div>
     <div class="nav-links">
-        <a href="#modes">Modes</a>
-        <a href="#features">Features</a>
-        <a href="#how">How It Works</a>
+        <a href="#modes">모드</a>
+        <a href="#features">기능</a>
+        <a href="#how">사용 방법</a>
         <div class="lang-switch">
-            <a href="/" class="active">EN</a>
+            <a href="/">EN</a>
             <a href="/es/">ES</a>
             <a href="/ja/">JA</a>
-            <a href="/ko/">KO</a>
+            <a href="/ko/" class="active">KO</a>
         </div>
-        <a href="#signup" class="nav-cta">Join Beta</a>
+        <a href="#signup" class="nav-cta">베타 참여</a>
     </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero">
     <div class="hero-badge">
         <span class="dot"></span>
-        Beta — Now Accepting Testers
+        베타 — 테스터 모집 중
     </div>
 
-    <h1>Know your game.<br><span class="accent">Own your line.</span></h1>
+    <h1>게임을 알고,<br><span class="accent">라인을 그리다.</span></h1>
 
     <p class="hero-sub">
-        AR-powered shot tracking for players and coaches.
-        Pre-drawn course templates, LiDAR putting, team management,
-        and real dispersion data — all from your iPhone.
+        플레이어와 코치를 위한 AR 기반 샷 트래킹.
+        미리 그려진 코스 템플릿, LiDAR 퍼팅, 팀 관리, 실제 분산 데이터 —
+        모두 iPhone에서.
     </p>
 
     <div class="hero-cta-group">
-        <a href="#signup" class="btn btn-primary">Join the Beta</a>
-        <a href="#modes" class="btn btn-ghost">See What's Inside</a>
+        <a href="#signup" class="btn btn-primary">베타 참여</a>
+        <a href="#modes" class="btn btn-ghost">기능 보기</a>
     </div>
 
     <div class="hero-visual">
-        <span class="hero-visual-text">App Screenshot Coming Soon</span>
+        <span class="hero-visual-text">앱 스크린샷 곧 공개</span>
     </div>
 
     <div class="lang-badge">
@@ -372,224 +350,210 @@
     </div>
 </section>
 
-<!-- Three Modes -->
 <section id="modes">
     <div class="reveal">
-        <div class="section-label">Three Modes</div>
-        <h2>One app. Three ways to use it.</h2>
+        <div class="section-label">세 가지 모드</div>
+        <h2>하나의 앱. 세 가지 사용 방법.</h2>
         <p class="section-desc">
-            PrecisionEdge opens to a mode selector every time. Pick your role and go.
+            PrecisionEdge는 매번 모드 선택기로 시작합니다. 역할을 선택하고 시작하세요.
         </p>
     </div>
 
     <div class="modes-grid">
         <div class="mode-card green reveal">
             <div class="mode-icon">&#127947;&#65039;</div>
-            <span class="mode-tag">Player</span>
-            <h3>Player Mode</h3>
-            <p>Solo shot tracking with AR and GPS. Build your personal club data one shot at a time.</p>
+            <span class="mode-tag">플레이어</span>
+            <h3>플레이어 모드</h3>
+            <p>AR과 GPS를 사용한 개인 샷 트래킹. 한 샷씩 자신의 클럽 데이터를 구축합니다.</p>
             <ul class="mode-features">
-                <li>AR + GPS carry distance and lateral deviation</li>
-                <li>Club-by-club dispersion patterns</li>
-                <li>AR trajectory overlays on the range</li>
-                <li>2D dispersion maps and target landing views</li>
-                <li>Smart club distance suggestions</li>
+                <li>AR + GPS 캐리 거리와 좌우 편차</li>
+                <li>클럽별 분산 패턴</li>
+                <li>연습 레인지의 AR 궤적 오버레이</li>
+                <li>2D 분산 맵과 타겟 착지 뷰</li>
+                <li>스마트한 클럽 거리 제안</li>
             </ul>
         </div>
 
         <div class="mode-card cyan reveal">
             <div class="mode-icon">&#129504;</div>
-            <span class="mode-tag">Coach</span>
-            <h3>Coach Mode</h3>
-            <p>Manage your team, track every player's shots on the range and course, review rounds later.</p>
+            <span class="mode-tag">코치</span>
+            <h3>코치 모드</h3>
+            <p>팀을 관리하고, 각 플레이어의 샷을 레인지와 코스에서 추적하며, 라운드를 나중에 검토하세요.</p>
             <ul class="mode-features">
-                <li>Team roster with up to 12 color-coded players</li>
-                <li>Range sessions with per-player shot tracking</li>
-                <li>Course play with pre-drawn hole templates</li>
-                <li>Save courses and load them instantly</li>
-                <li>Putting green with numbered shot sequence</li>
-                <li>Session history with full round review</li>
+                <li>최대 12명의 색상 코드 플레이어 팀 명단</li>
+                <li>플레이어별 샷 추적 레인지 세션</li>
+                <li>미리 그려진 홀 템플릿으로 코스 플레이</li>
+                <li>코스를 저장하고 즉시 로드</li>
+                <li>번호가 매겨진 샷 시퀀스의 퍼팅 그린</li>
+                <li>전체 라운드 검토가 가능한 세션 기록</li>
             </ul>
         </div>
 
         <div class="mode-card orange reveal">
             <div class="mode-icon">&#9971;&#65039;</div>
-            <span class="mode-tag">Range Day</span>
-            <h3>Range Day Mode</h3>
-            <p>Quick-fire team sessions at the range. Pick players, assign clubs, and track shots fast.</p>
+            <span class="mode-tag">레인지 데이</span>
+            <h3>레인지 데이 모드</h3>
+            <p>연습 레인지에서의 빠른 팀 세션. 플레이어를 선택하고, 클럽을 할당하며, 빠르게 샷을 추적합니다.</p>
             <ul class="mode-features">
-                <li>Streamlined for driving range speed</li>
-                <li>Per-player club assignments</li>
-                <li>Rapid shot logging</li>
-                <li>Session naming and review</li>
+                <li>드라이빙 레인지 속도에 최적화</li>
+                <li>플레이어별 클럽 할당</li>
+                <li>신속한 샷 로깅</li>
+                <li>세션 명명 및 검토</li>
             </ul>
         </div>
     </div>
 </section>
 
-<!-- Course Builder Spotlight -->
 <section id="course-builder">
     <div class="reveal">
-        <div class="section-label">Course Play</div>
-        <h2>Build your course in two minutes flat</h2>
+        <div class="section-label">코스 플레이</div>
+        <h2>2분 만에 코스를 구축</h2>
         <p class="section-desc">
-            Coach looks at the back of the scorecard, picks a hole layout and yardage
-            for each hole, and locks in the entire course before the round starts.
-            Every hole loads instantly during play.
+            코치가 스코어카드 뒷면을 보고, 각 홀의 레이아웃과 야디지를 선택해,
+            라운드 시작 전에 전체 코스를 잠급니다. 각 홀은 플레이 중 즉시 로드됩니다.
         </p>
     </div>
 
     <div class="spotlight reveal">
         <div class="spotlight-text">
-            <h3>18 Pre-Drawn Hole Templates</h3>
+            <h3>18개의 미리 그려진 홀 템플릿</h3>
             <p>
-                Smooth bezier-curved fairways, water hazards, bunkers, and greens.
-                Par 3s, par 4s, par 5s, doglegs left and right, water carries,
-                island greens, and double doglegs — all with organic shapes
-                that look like real holes.
+                부드러운 베지에 곡선 페어웨이, 워터 해저드, 벙커, 그린.
+                파 3, 파 4, 파 5, 좌우 도그렉, 워터 캐리,
+                아일랜드 그린, 더블 도그렉 —
+                모두 실제 홀처럼 보이는 유기적인 형태.
             </p>
             <p>
-                Save your course for later. Load it next week without rebuilding.
-                Name your rounds and review them from the dashboard
-                with the same template visuals and shot data overlaid.
+                코스를 나중을 위해 저장. 다음 주에 재구축 없이 로드.
+                라운드에 이름을 지정하고, 동일한 템플릿 비주얼과
+                샷 데이터가 오버레이된 대시보드에서 검토하세요.
             </p>
         </div>
         <div class="spotlight-visual">
             <div class="template-grid">
-                <div class="template-tile">Straight<span class="par">PAR 3</span></div>
-                <div class="template-tile">Dogleg L<span class="par">PAR 4</span></div>
-                <div class="template-tile">Dogleg R<span class="par">PAR 4</span></div>
-                <div class="template-tile">Water Carry<span class="par">PAR 3</span></div>
-                <div class="template-tile">Double Dog<span class="par">PAR 5</span></div>
-                <div class="template-tile">Island Green<span class="par">PAR 3</span></div>
-                <div class="template-tile">Long Par 5<span class="par">PAR 5</span></div>
-                <div class="template-tile">Bunker Right<span class="par">PAR 4</span></div>
-                <div class="template-tile">+ 10 more<span class="par">PAR 3-5</span></div>
+                <div class="template-tile">직선<span class="par">PAR 3</span></div>
+                <div class="template-tile">좌 도그렉<span class="par">PAR 4</span></div>
+                <div class="template-tile">우 도그렉<span class="par">PAR 4</span></div>
+                <div class="template-tile">워터 캐리<span class="par">PAR 3</span></div>
+                <div class="template-tile">더블 도그<span class="par">PAR 5</span></div>
+                <div class="template-tile">아일랜드 그린<span class="par">PAR 3</span></div>
+                <div class="template-tile">롱 파 5<span class="par">PAR 5</span></div>
+                <div class="template-tile">우측 벙커<span class="par">PAR 4</span></div>
+                <div class="template-tile">+ 10개 더<span class="par">PAR 3-5</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Features -->
 <section id="features">
     <div class="reveal">
-        <div class="section-label">Features</div>
-        <h2>Built for golfers who want the truth</h2>
+        <div class="section-label">기능</div>
+        <h2>진실을 원하는 골퍼를 위해</h2>
         <p class="section-desc">
-            No guessing. No vibes. PrecisionEdge uses your phone's AR camera and GPS
-            to capture real data from real shots on real courses.
+            추측 없음. 감각 없음. PrecisionEdge는 휴대폰의 AR 카메라와 GPS를 사용해,
+            실제 코스에서 실제 샷의 실제 데이터를 캡처합니다.
         </p>
     </div>
 
     <div class="features-grid">
         <div class="feature-card reveal">
             <div class="feature-icon">&#128225;</div>
-            <h3>AR + GPS Shot Capture</h3>
-            <p>Mark your ball, pick your club, hit it, walk to the landing spot.
-               Carry distance and lateral deviation measured automatically.</p>
+            <h3>AR + GPS 샷 캡처</h3>
+            <p>공을 표시하고, 클럽을 선택하고, 치고, 착지 지점으로 걸어가세요.
+               캐리 거리와 좌우 편차가 자동으로 측정됩니다.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#127919;</div>
-            <h3>Dispersion Patterns</h3>
-            <p>See your real shot spread for every club — in AR trajectory overlays,
-               2D dispersion maps, and target landing views.</p>
+            <h3>분산 패턴</h3>
+            <p>각 클럽의 실제 샷 분포를 확인 — AR 궤적 오버레이,
+               2D 분산 맵, 타겟 착지 뷰로.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#128243;</div>
-            <h3>LiDAR Putting</h3>
-            <p>On devices with LiDAR, the putting green comes alive.
-               Precision distance tracking on the green with numbered shot sequences.</p>
+            <h3>LiDAR 퍼팅</h3>
+            <p>LiDAR 탑재 기기에서, 퍼팅 그린이 살아납니다.
+               번호가 매겨진 샷 시퀀스로 그린 위 정밀 거리 추적.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#128101;</div>
-            <h3>Team Management</h3>
-            <p>Up to 12 color-coded players per team. Track every player's shots,
-               assign clubs, and review per-player stats across sessions.</p>
+            <h3>팀 관리</h3>
+            <p>팀당 최대 12명의 색상 코드 플레이어. 각 플레이어의 샷을 추적하고,
+               클럽을 할당하며, 세션 전반의 플레이어별 통계를 검토하세요.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#128190;</div>
-            <h3>Save Everything</h3>
-            <p>Courses save for reuse. Rounds save with names for future review.
-               Session history lives on the dashboard — tap to replay any round.</p>
+            <h3>모두 저장</h3>
+            <p>코스는 재사용을 위해 저장됩니다. 라운드는 향후 검토를 위해 이름과 함께 저장됩니다.
+               세션 기록은 대시보드에 — 탭하여 어떤 라운드든 재생.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#127760;</div>
-            <h3>4-Language Support</h3>
-            <p>Full interface in English, Spanish, Japanese, and Korean.
-               Switch languages anytime from any mode.</p>
+            <h3>4개 언어 지원</h3>
+            <p>영어, 스페인어, 일본어, 한국어 완전 인터페이스.
+               어떤 모드에서든 언제든지 언어 전환 가능.</p>
         </div>
     </div>
 </section>
 
-<!-- How It Works -->
 <section id="how">
     <div class="reveal">
-        <div class="section-label">How It Works</div>
-        <h2>Pick your mode. Go play.</h2>
+        <div class="section-label">사용 방법</div>
+        <h2>모드를 선택하세요. 플레이 시작.</h2>
         <p class="section-desc">
-            No launch monitor. No sensors. Just your iPhone on the course or range.
+            런치 모니터 불필요. 센서 불필요. 코스나 레인지에서 iPhone만 있으면 됩니다.
         </p>
     </div>
 
     <div class="steps">
         <div class="step reveal">
-            <h3>Choose your mode</h3>
-            <p>Player for solo practice, Coach to run your team,
-               or Range Day for quick group sessions at the driving range.</p>
+            <h3>모드 선택</h3>
+            <p>개인 연습은 플레이어, 팀 운영은 코치,
+               드라이빙 레인지에서의 빠른 그룹 세션은 레인지 데이.</p>
         </div>
         <div class="step reveal">
-            <h3>Set up your session</h3>
-            <p>Player: pick a club and target distance.
-               Coach: build your course from templates or start a range session.
-               Range Day: assign clubs and go.</p>
+            <h3>세션 설정</h3>
+            <p>플레이어: 클럽과 타겟 거리 선택.
+               코치: 템플릿에서 코스를 구축하거나 레인지 세션 시작.
+               레인지 데이: 클럽을 할당하고 시작.</p>
         </div>
         <div class="step reveal">
-            <h3>Track shots</h3>
-            <p>AR and GPS do the heavy lifting. Tap where the ball lands,
-               and PrecisionEdge calculates carry, deviation, and accuracy.</p>
+            <h3>샷 추적</h3>
+            <p>AR과 GPS가 무거운 작업을 처리합니다. 공이 착지한 곳을 탭하면,
+               PrecisionEdge가 캐리, 편차, 정확도를 계산합니다.</p>
         </div>
         <div class="step reveal">
-            <h3>Review your data</h3>
-            <p>Named sessions save to history. Pull up any round,
-               see shot-by-shot data overlaid on hole templates or dispersion maps.</p>
+            <h3>데이터 검토</h3>
+            <p>이름이 지정된 세션은 기록에 저장됩니다. 어떤 라운드든 열어,
+               홀 템플릿이나 분산 맵 위에 오버레이된 샷별 데이터를 확인하세요.</p>
         </div>
     </div>
 </section>
 
-<!-- CTA / Signup -->
 <section class="cta-section" id="signup">
     <div class="reveal">
-        <div class="section-label">Early Access</div>
-        <h2>Get in before launch</h2>
+        <div class="section-label">얼리 액세스</div>
+        <h2>출시 전 참여하세요</h2>
         <p class="section-desc">
-            Join the TestFlight beta and help shape PrecisionEdge.
-            Available for iPhone with iOS 16+.
+            TestFlight 베타에 참여하여 PrecisionEdge를 함께 만들어 가세요.
+            iOS 16+ iPhone에서 이용 가능.
         </p>
 
         <form class="signup-form" id="betaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input type="email" name="email" placeholder="your@email.com" required>
-            <button type="submit" class="btn btn-primary">Join Beta</button>
+            <button type="submit" class="btn btn-primary">베타 참여</button>
         </form>
-        <p class="form-note">No spam. Just a TestFlight invite when your spot is ready.</p>
-        <p class="form-success" id="formSuccess">You're on the list. Watch for a TestFlight invite.</p>
-
-        <!-- App Store button — uncomment when live
-        <a href="https://apps.apple.com/app/YOUR_APP_ID" class="appstore-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.56 2.93 11.3 4.7 7.72C5.57 5.94 7.36 4.86 9.28 4.84C10.56 4.82 11.78 5.72 12.56 5.72C13.34 5.72 14.82 4.62 16.39 4.8C17.07 4.83 18.96 5.09 20.18 6.88C20.07 6.95 17.69 8.33 17.71 11.22C17.74 14.65 20.68 15.8 20.71 15.81C20.69 15.87 20.24 17.42 19.15 19.01L18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
-            Download on the App Store
-        </a>
-        -->
+        <p class="form-note">스팸 없음. 자리가 준비되면 TestFlight 초대를 보내드립니다.</p>
+        <p class="form-success" id="formSuccess">명단에 추가되었습니다. TestFlight 초대를 기다려 주세요.</p>
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
     <div class="footer-logo">Precision<span>Edge</span></div>
     <p>&copy; 2026 PrecisionEdge Golf. All rights reserved.</p>
     <div class="footer-links">
-        <a href="mailto:hello@precisionedge.golf">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="#">Terms</a>
+        <a href="mailto:hello@precisionedge.golf">문의</a>
+        <a href="privacy.html">개인정보</a>
+        <a href="#">이용약관</a>
     </div>
 </footer>
 

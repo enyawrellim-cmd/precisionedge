@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support — PrecisionEdge</title>
+    <link rel="alternate" hreflang="en" href="https://precisionedgegolf.com/support.html" />
+    <link rel="alternate" hreflang="es" href="https://precisionedgegolf.com/es/support.html" />
+    <link rel="alternate" hreflang="ja" href="https://precisionedgegolf.com/ja/support.html" />
+    <link rel="alternate" hreflang="ko" href="https://precisionedgegolf.com/ko/support.html" />
+    <link rel="alternate" hreflang="x-default" href="https://precisionedgegolf.com/support.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
     <style>
@@ -11,9 +16,9 @@
             --bg-primary: #0a0f0c;
             --bg-card: #111a14;
             --bg-card-hover: #162019;
-            --text-primary: #e8ede9;
-            --text-secondary: #8a9b8e;
-            --text-dim: #5a6b5e;
+            --text-primary: #f0f5f1;
+            --text-secondary: #b8c4ba;
+            --text-dim: #8a9b8e;
             --accent: #4ade80;
             --accent-dim: rgba(74, 222, 128, 0.12);
             --border: rgba(74, 222, 128, 0.08);
@@ -55,12 +60,45 @@
             border-bottom: 1px solid var(--border);
         }
 
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
         .brand {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 32px;
             text-decoration: none;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-family: var(--sans);
+            font-size: 11px;
+        }
+        .lang-switch a {
+            color: var(--text-dim);
+            padding: 4px 9px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+            letter-spacing: 1px;
+        }
+        .lang-switch a:hover {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+        .lang-switch a.active {
+            color: var(--text-primary);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
         }
 
         .brand-icon {
@@ -339,10 +377,18 @@
 <div class="container">
 
     <header>
-        <a href="index.html" class="brand">
-            <div class="brand-icon">⛳</div>
-            <span class="brand-name">PrecisionEdge</span>
-        </a>
+        <div class="header-top">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">⛳</div>
+                <span class="brand-name">PrecisionEdge</span>
+            </a>
+            <div class="lang-switch">
+                <a href="/support.html" class="active">EN</a>
+                <a href="/es/support.html">ES</a>
+                <a href="/ja/support.html">JA</a>
+                <a href="/ko/support.html">KO</a>
+            </div>
+        </div>
         <h1>Support</h1>
         <p class="subtitle">Help with GPS tracking, AR, and more</p>
     </header>

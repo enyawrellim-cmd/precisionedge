@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte — PrecisionEdge</title>
+    <link rel="alternate" hreflang="en" href="https://precisionedgegolf.com/support.html" />
+    <link rel="alternate" hreflang="es" href="https://precisionedgegolf.com/es/support.html" />
+    <link rel="alternate" hreflang="ja" href="https://precisionedgegolf.com/ja/support.html" />
+    <link rel="alternate" hreflang="ko" href="https://precisionedgegolf.com/ko/support.html" />
+    <link rel="alternate" hreflang="x-default" href="https://precisionedgegolf.com/support.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f0c; --bg-card: #111a14; --bg-card-hover: #162019;
+            --text-primary: #f0f5f1; --text-secondary: #b8c4ba; --text-dim: #8a9b8e;
+            --accent: #4ade80; --accent-dim: rgba(74, 222, 128, 0.12); --border: rgba(74, 222, 128, 0.08);
+            --serif: 'Instrument Serif', Georgia, serif; --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; pointer-events: none; z-index: 999; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header { padding: 48px 0 40px; border-bottom: 1px solid var(--border); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; gap: 16px; flex-wrap: wrap; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand-icon { width: 40px; height: 40px; background: var(--accent-dim); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .brand-name { font-family: var(--serif); font-size: 22px; color: var(--text-primary); letter-spacing: -0.02em; }
+        .lang-switch { display: flex; gap: 6px; align-items: center; font-family: var(--sans); font-size: 11px; }
+        .lang-switch a { color: var(--text-dim); padding: 4px 9px; border-radius: 6px; text-decoration: none; transition: all 0.2s; letter-spacing: 1px; }
+        .lang-switch a:hover { color: var(--accent); background: var(--accent-dim); }
+        .lang-switch a.active { color: var(--text-primary); background: var(--bg-card); border: 1px solid var(--border); }
+        h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 48px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-primary); margin-bottom: 16px; }
+        .subtitle { font-size: 15px; color: var(--text-secondary); }
+        .toc { padding: 32px 0; border-bottom: 1px solid var(--border); }
+        .toc-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+        .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        @media (max-width: 520px) { .toc-list { grid-template-columns: 1fr; } }
+        .toc-list a { color: var(--text-secondary); text-decoration: none; font-size: 14px; padding: 8px 12px; border-radius: 8px; display: block; transition: all 0.2s; }
+        .toc-list a:hover { background: var(--accent-dim); color: var(--accent); }
+        .toc-list .toc-num { color: var(--accent); font-weight: 600; margin-right: 8px; font-size: 12px; }
+        section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+        section:last-of-type { border-bottom: none; }
+        h2 { font-family: var(--serif); font-size: 28px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--text-primary); }
+        .section-num { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 10px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.06em; }
+        p { color: var(--text-secondary); margin-bottom: 16px; font-size: 15px; }
+        p:last-child { margin-bottom: 0; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; transition: background 0.2s; }
+        .faq-item:hover { background: var(--bg-card-hover); }
+        .faq-question { font-weight: 600; color: var(--text-primary); margin-bottom: 12px; font-size: 15px; cursor: pointer; display: flex; align-items: center; gap: 12px; }
+        .faq-question::before { content: '▶'; font-size: 12px; color: var(--accent); transition: transform 0.2s; display: inline-block; }
+        .faq-item.open .faq-question::before { transform: rotate(90deg); }
+        .faq-answer { color: var(--text-secondary); font-size: 14px; line-height: 1.6; display: none; }
+        .faq-item.open .faq-answer { display: block; }
+        .highlight { background: var(--accent-dim); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 20px 0; }
+        .highlight p { color: var(--text-primary); font-size: 14px; margin-bottom: 0; }
+        .highlight strong { color: var(--accent); }
+        ul { list-style: none; margin: 16px 0; }
+        ul li { position: relative; padding-left: 20px; color: var(--text-secondary); font-size: 15px; margin-bottom: 10px; }
+        ul li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.6; }
+        .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-top: 20px; text-align: center; }
+        .contact-card a { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--accent-dim); transition: border-color 0.2s; }
+        .contact-card a:hover { border-color: var(--accent); }
+        footer { padding: 40px 0; text-align: center; }
+        footer p { font-size: 13px; color: var(--text-dim); }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+        html { scroll-behavior: smooth; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        section { animation: fadeUp 0.5s ease both; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="header-top">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">⛳</div>
+                <span class="brand-name">PrecisionEdge</span>
+            </a>
+            <div class="lang-switch">
+                <a href="/support.html">EN</a>
+                <a href="/es/support.html" class="active">ES</a>
+                <a href="/ja/support.html">JA</a>
+                <a href="/ko/support.html">KO</a>
+            </div>
+        </div>
+        <h1>Soporte</h1>
+        <p class="subtitle">Ayuda con el seguimiento GPS, AR y más</p>
+    </header>
+
+    <nav class="toc">
+        <p class="toc-title">Contenidos</p>
+        <ul class="toc-list">
+            <li><a href="#gps-accuracy"><span class="toc-num">01</span> Consejos de Precisión GPS</a></li>
+            <li><a href="#ar-camera"><span class="toc-num">02</span> Problemas de Cámara AR</a></li>
+            <li><a href="#club-averages"><span class="toc-num">03</span> Promedios de Palos</a></li>
+            <li><a href="#subscription"><span class="toc-num">04</span> Suscripción y Prueba</a></li>
+            <li><a href="#coach-mode"><span class="toc-num">05</span> Configuración Modo Entrenador</a></li>
+            <li><a href="#contact"><span class="toc-num">06</span> Contactar Soporte</a></li>
+        </ul>
+    </nav>
+
+    <section id="gps-accuracy">
+        <span class="section-num">01</span>
+        <h2>Consejos de Precisión GPS</h2>
+        <div class="highlight">
+            <p><strong>El GPS funciona mejor al aire libre en condiciones despejadas.</strong> La precisión depende de la fuerza de la señal satelital y las condiciones atmosféricas.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Por qué las distancias de mis tiros son inconsistentes?</div>
+            <div class="faq-answer">La precisión GPS varía según varios factores: número de satélites visibles, nubosidad, edificios o árboles que bloquean la señal, y la calidad del chip GPS del dispositivo. La mayoría de dispositivos iOS tienen GPS preciso entre 1.5 y 3 metros. Toma tiros con visibilidad clara del cielo para mejores resultados.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Cómo puedo mejorar la precisión del GPS?</div>
+            <div class="faq-answer">Aléjate de árboles, edificios y estructuras que bloqueen las señales satelitales. Permite que la app tenga unos momentos después de iniciarla para enganchar satélites — verás el indicador GPS en la parte superior de la pantalla. Juega en áreas abiertas del campo. Evita jugar durante clima nublado o tormentoso.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Qué pasa si la app no puede engancharse al GPS?</div>
+            <div class="faq-answer">Asegúrate de que los Servicios de Ubicación estén activados para PrecisionEdge en Ajustes > Privacidad > Servicios de Ubicación. Reinicia la app si tiene problemas para engancharse. Permite hasta 30 segundos para el primer enganche GPS del día. Si los problemas persisten, reinicia tu dispositivo.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿PrecisionEdge usa GPS asistido (A-GPS)?</div>
+            <div class="faq-answer">Sí. La app descarga datos de Wi-Fi y celular para ayudar a tu dispositivo a engancharse a satélites más rápido. Esto requiere acceso a internet pero mejora la inicialización del GPS. Después del enganche inicial, la app funciona sin conexión.</div>
+        </div>
+    </section>
+
+    <section id="ar-camera">
+        <span class="section-num">02</span>
+        <h2>Problemas de Cámara AR</h2>
+        <div class="highlight">
+            <p><strong>AR requiere un dispositivo compatible y los permisos adecuados.</strong> La mayoría de iPhones y iPads modernos soportan funciones basadas en ARKit.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Por qué no funciona AR?</div>
+            <div class="faq-answer">Verifica que el permiso de Cámara esté otorgado para PrecisionEdge en Ajustes > Privacidad > Cámara. Asegúrate de que tu dispositivo soporte ARKit (iPhone 6s o posterior, iPad Air 2 o posterior). AR requiere condiciones bien iluminadas con características de superficie visibles — evita poca luz o paredes en blanco.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Por qué mis tiros se ven borrosos o tiembla la AR?</div>
+            <div class="faq-answer">Esto generalmente significa que la cámara no puede rastrear bien la superficie del suelo. Asegúrate de que la app apunte al suelo con textura variada (césped, tierra, pavimento). Mueve lentamente y deja que la cámara se estabilice. Evita apuntar directamente hacia abajo o al cielo.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Cuántos tiros puedo visualizar en AR?</div>
+            <div class="faq-answer">Hasta 25 tiros se almacenan por ronda. En la vista AR, hasta 5 tiros se dibujan y son visibles a la vez. Puedes alternar entre tus tiros para ver diferentes en AR.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿AR requiere conexión a internet?</div>
+            <div class="faq-answer">No. El renderizado AR ocurre completamente en tu dispositivo. Puedes usar el modo AR sin conexión.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Qué es el modo de putt LiDAR?</div>
+            <div class="faq-answer">LiDAR (disponible en iPhone 12 Pro/Max, iPhone 13 Pro/Max y posteriores) ofrece detección de profundidad superior para greens de putt. El modo de putt usa LiDAR para mapear la topografía del green con precisión a nivel de centímetros, ayudándote a visualizar la pendiente y leer las inclinaciones con mayor precisión.</div>
+        </div>
+    </section>
+
+    <section id="club-averages">
+        <span class="section-num">03</span>
+        <h2>Promedios de Palos</h2>
+        <div class="highlight">
+            <p><strong>Construye perfiles de palos con tus propios datos.</strong> Cuantos más tiros registres, más precisos serán tus promedios de palos.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Cómo calcula PrecisionEdge los promedios de palos?</div>
+            <div class="faq-answer">Los promedios de palos se calculan a partir de todos los tiros que has registrado con cada palo. La app calcula la distancia media de vuelo en todos los tiros con ese palo. Cuantos más tiros registres, más estadísticamente confiable será tu promedio.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Qué son las advertencias de palo no coincidente?</div>
+            <div class="faq-answer">Si seleccionas un palo cuya distancia promedio no coincide con tu objetivo, la app te alerta. Por ejemplo, si tu hierro 7 promedia 150 metros pero el hoyo está a 130 metros, PrecisionEdge sugiere un palo diferente para ajustarse mejor a la distancia.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Cuántos tiros necesito para construir un promedio de palo confiable?</div>
+            <div class="faq-answer">Una buena regla práctica es al menos 10-15 tiros por palo para establecer una base. 30+ tiros te dan un perfil estadístico sólido. Tus promedios se actualizarán automáticamente a medida que registres más tiros.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Puedo ajustar manualmente los promedios de mis palos?</div>
+            <div class="faq-answer">Los promedios de palos se calculan automáticamente a partir de tus datos de tiros registrados. Si crees que un promedio es inexacto, revisa tus tiros recientes con ese palo o elimina valores atípicos para recalibrar.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Puedo ver mi patrón de dispersión para cada palo?</div>
+            <div class="faq-answer">Sí. En la vista AR, puedes filtrar tiros por palo para ver cómo se distribuyen tus tiros con ese palo a través del campo. Esto ayuda a identificar problemas de consistencia o sesgo en una dirección.</div>
+        </div>
+    </section>
+
+    <section id="subscription">
+        <span class="section-num">04</span>
+        <h2>Suscripción y Prueba</h2>
+        <div class="highlight">
+            <p><strong>Prueba gratuita de 10 días. Sin tarjeta de crédito.</strong> Cancela cuando quieras.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿PrecisionEdge realmente es gratis para escuelas secundarias?</div>
+            <div class="faq-answer">Sí. Los entrenadores de escuelas secundarias pueden verificar su escuela y recibir acceso gratuito para su equipo. La verificación se realiza mediante un simple correo escolar o un proceso de verificación administrativa en la app.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Cómo inicio la prueba gratuita de 10 días?</div>
+            <div class="faq-answer">Cuando inicias la app, te inscribes automáticamente en una prueba gratuita de 10 días. No se requiere tarjeta de crédito para empezar. Recibirás un recordatorio antes de que termine la prueba para que puedas decidir si suscribirte o cancelar.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Qué pasa cuando termina mi prueba?</div>
+            <div class="faq-answer">Se te pedirá que te suscribas para continuar usando la app. Si cancelas o dejas que tu suscripción caduque, los datos de tus tiros permanecen en tu dispositivo. Puedes volver a suscribirte en cualquier momento.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Puedo cancelar mi suscripción?</div>
+            <div class="faq-answer">Sí. Puedes gestionar y cancelar tu suscripción a través del App Store en Ajustes > [Tu Nombre] > Suscripciones > PrecisionEdge. La cancelación es inmediata y efectiva en la próxima fecha de renovación.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Perderé mis datos si cancelo?</div>
+            <div class="faq-answer">No. Los datos de tus tiros se almacenan en tu dispositivo y no se eliminarán si cancelas. Puedes volver a suscribirte más tarde y tus datos seguirán ahí.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Qué idiomas soporta la app?</div>
+            <div class="faq-answer">PrecisionEdge está disponible en inglés, español, japonés y coreano. La app usará automáticamente la configuración de idioma de tu dispositivo.</div>
+        </div>
+    </section>
+
+    <section id="coach-mode">
+        <span class="section-num">05</span>
+        <h2>Configuración del Modo Entrenador</h2>
+        <div class="highlight">
+            <p><strong>El Modo Entrenador te permite gestionar los datos de tu equipo en un solo lugar.</strong> Sigue hasta 12 jugadores por equipo.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Cómo activo el Modo Entrenador?</div>
+            <div class="faq-answer">El Modo Entrenador está disponible para entrenadores verificados. Ve a Ajustes > Modo Entrenador y sigue el proceso de verificación. Necesitarás proporcionar tu correo escolar o credenciales administrativas. Una vez verificado, puedes crear un equipo y agregar jugadores.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Cuántos jugadores puedo agregar a mi equipo?</div>
+            <div class="faq-answer">Cada equipo puede tener hasta 12 jugadores. Si necesitas gestionar más jugadores, puedes crear equipos adicionales.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Cómo se unen los jugadores a mi equipo?</div>
+            <div class="faq-answer">Los jugadores reciben un código de equipo o un enlace de invitación de tu parte. Lo introducen en su propia app para unirse a tu equipo. Una vez unidos, los datos de sus tiros se sincronizan con la vista del equipo (respetando su configuración de privacidad).</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Pueden los jugadores ver los datos de los demás?</div>
+            <div class="faq-answer">Los jugadores pueden ver sus propios datos y las estadísticas agregadas del equipo (promedios de equipo, tendencias), pero los datos individuales de cada jugador son privados por defecto. Puedes ajustar la configuración de visibilidad en el Modo Entrenador para permitir comparación entre pares si lo deseas.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Qué puedo ver en el Modo Entrenador?</div>
+            <div class="faq-answer">En el Modo Entrenador puedes ver: los promedios de palos de cada jugador, resúmenes de rondas, patrones de dispersión, progreso a lo largo del tiempo y estadísticas de todo el equipo. También puedes exportar datos para registros o análisis.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">¿Hay un modo demo para entrenadores?</div>
+            <div class="faq-answer">Sí. El Modo Demo te permite explorar las funciones del Modo Entrenador con datos de ejemplo sin necesidad de un equipo real. Es útil para capacitación o para evaluar la app antes de implementarla con tu equipo.</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <span class="section-num">06</span>
+        <h2>Contactar Soporte</h2>
+        <p>¿Tienes una pregunta que no respondimos? Ponte en contacto. Estamos aquí para ayudar.</p>
+        <div class="contact-card">
+            <p style="font-size: 16px; color: var(--text-primary); margin-bottom: 12px;"><strong>Correo electrónico</strong></p>
+            <p><a href="mailto:enyawrellim@gmail.com">enyawrellim@gmail.com</a></p>
+            <p style="color: var(--text-dim); font-size: 13px; margin-top: 16px;">Normalmente respondemos dentro de 24 horas.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 PrecisionEdge Golf LLC. Todos los derechos reservados.</p>
+        <p style="margin-top: 8px;"><a href="index.html">Inicio</a> • <a href="privacy.html">Privacidad</a></p>
+    </footer>
+
+</div>
+
+<script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            item.classList.toggle('open');
+        });
+    });
+</script>
+
+</body>
+</html>

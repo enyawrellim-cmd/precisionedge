@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객 지원 — PrecisionEdge</title>
+    <link rel="alternate" hreflang="en" href="https://precisionedgegolf.com/support.html" />
+    <link rel="alternate" hreflang="es" href="https://precisionedgegolf.com/es/support.html" />
+    <link rel="alternate" hreflang="ja" href="https://precisionedgegolf.com/ja/support.html" />
+    <link rel="alternate" hreflang="ko" href="https://precisionedgegolf.com/ko/support.html" />
+    <link rel="alternate" hreflang="x-default" href="https://precisionedgegolf.com/support.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f0c; --bg-card: #111a14; --bg-card-hover: #162019;
+            --text-primary: #f0f5f1; --text-secondary: #b8c4ba; --text-dim: #8a9b8e;
+            --accent: #4ade80; --accent-dim: rgba(74, 222, 128, 0.12); --border: rgba(74, 222, 128, 0.08);
+            --serif: 'Instrument Serif', Georgia, serif; --sans: 'Noto Sans KR', 'DM Sans', -apple-system, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; pointer-events: none; z-index: 999; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header { padding: 48px 0 40px; border-bottom: 1px solid var(--border); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; gap: 16px; flex-wrap: wrap; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand-icon { width: 40px; height: 40px; background: var(--accent-dim); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .brand-name { font-family: var(--serif); font-size: 22px; color: var(--text-primary); letter-spacing: -0.02em; }
+        .lang-switch { display: flex; gap: 6px; align-items: center; font-family: var(--sans); font-size: 11px; }
+        .lang-switch a { color: var(--text-dim); padding: 4px 9px; border-radius: 6px; text-decoration: none; transition: all 0.2s; letter-spacing: 1px; }
+        .lang-switch a:hover { color: var(--accent); background: var(--accent-dim); }
+        .lang-switch a.active { color: var(--text-primary); background: var(--bg-card); border: 1px solid var(--border); }
+        h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 48px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-primary); margin-bottom: 16px; }
+        .subtitle { font-size: 15px; color: var(--text-secondary); }
+        .toc { padding: 32px 0; border-bottom: 1px solid var(--border); }
+        .toc-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+        .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        @media (max-width: 520px) { .toc-list { grid-template-columns: 1fr; } }
+        .toc-list a { color: var(--text-secondary); text-decoration: none; font-size: 14px; padding: 8px 12px; border-radius: 8px; display: block; transition: all 0.2s; }
+        .toc-list a:hover { background: var(--accent-dim); color: var(--accent); }
+        .toc-list .toc-num { color: var(--accent); font-weight: 600; margin-right: 8px; font-size: 12px; }
+        section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+        section:last-of-type { border-bottom: none; }
+        h2 { font-family: var(--serif); font-size: 28px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--text-primary); }
+        .section-num { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 10px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.06em; }
+        p { color: var(--text-secondary); margin-bottom: 16px; font-size: 15px; }
+        p:last-child { margin-bottom: 0; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; transition: background 0.2s; }
+        .faq-item:hover { background: var(--bg-card-hover); }
+        .faq-question { font-weight: 600; color: var(--text-primary); margin-bottom: 12px; font-size: 15px; cursor: pointer; display: flex; align-items: center; gap: 12px; }
+        .faq-question::before { content: '▶'; font-size: 12px; color: var(--accent); transition: transform 0.2s; display: inline-block; }
+        .faq-item.open .faq-question::before { transform: rotate(90deg); }
+        .faq-answer { color: var(--text-secondary); font-size: 14px; line-height: 1.6; display: none; }
+        .faq-item.open .faq-answer { display: block; }
+        .highlight { background: var(--accent-dim); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 20px 0; }
+        .highlight p { color: var(--text-primary); font-size: 14px; margin-bottom: 0; }
+        .highlight strong { color: var(--accent); }
+        ul { list-style: none; margin: 16px 0; }
+        ul li { position: relative; padding-left: 20px; color: var(--text-secondary); font-size: 15px; margin-bottom: 10px; }
+        ul li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.6; }
+        .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-top: 20px; text-align: center; }
+        .contact-card a { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--accent-dim); transition: border-color 0.2s; }
+        .contact-card a:hover { border-color: var(--accent); }
+        footer { padding: 40px 0; text-align: center; }
+        footer p { font-size: 13px; color: var(--text-dim); }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+        html { scroll-behavior: smooth; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        section { animation: fadeUp 0.5s ease both; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="header-top">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">⛳</div>
+                <span class="brand-name">PrecisionEdge</span>
+            </a>
+            <div class="lang-switch">
+                <a href="/support.html">EN</a>
+                <a href="/es/support.html">ES</a>
+                <a href="/ja/support.html">JA</a>
+                <a href="/ko/support.html" class="active">KO</a>
+            </div>
+        </div>
+        <h1>고객 지원</h1>
+        <p class="subtitle">GPS 추적, AR 등 사용에 관한 도움말</p>
+    </header>
+
+    <nav class="toc">
+        <p class="toc-title">목차</p>
+        <ul class="toc-list">
+            <li><a href="#gps-accuracy"><span class="toc-num">01</span> GPS 정확도 팁</a></li>
+            <li><a href="#ar-camera"><span class="toc-num">02</span> AR 카메라 문제</a></li>
+            <li><a href="#club-averages"><span class="toc-num">03</span> 클럽 평균값</a></li>
+            <li><a href="#subscription"><span class="toc-num">04</span> 구독 및 무료 체험</a></li>
+            <li><a href="#coach-mode"><span class="toc-num">05</span> 코치 모드 설정</a></li>
+            <li><a href="#contact"><span class="toc-num">06</span> 지원 문의</a></li>
+        </ul>
+    </nav>
+
+    <section id="gps-accuracy">
+        <span class="section-num">01</span>
+        <h2>GPS 정확도 팁</h2>
+        <div class="highlight">
+            <p><strong>GPS는 탁 트인 야외 환경에서 가장 잘 작동합니다.</strong> 정확도는 위성 신호 강도와 기상 조건에 따라 달라집니다.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">샷 거리가 일정하지 않은 이유는 무엇입니까?</div>
+            <div class="faq-answer">GPS 정확도는 가시 위성의 수, 구름의 양, 신호를 차단하는 건물이나 나무, 그리고 기기의 GPS 칩 품질 등 여러 요인에 따라 달라집니다. 대부분의 iOS 기기는 약 1.5~3미터 범위 내에서 정확한 GPS 정보를 제공합니다. 최상의 결과를 얻으려면 하늘이 잘 보이는 환경에서 샷을 측정해 주십시오.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">GPS 정확도를 향상시키려면 어떻게 해야 합니까?</div>
+            <div class="faq-answer">위성 신호를 차단하는 나무, 건물, 구조물에서 떨어진 곳으로 이동해 주십시오. 앱을 실행한 후 위성 신호가 잡힐 때까지 잠시 기다려 주시기 바랍니다 — 화면 상단에서 GPS 표시기를 확인하실 수 있습니다. 코스의 탁 트인 구역에서 플레이해 주십시오. 흐리거나 폭풍우가 치는 날씨에는 사용을 피해 주시기 바랍니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">앱이 GPS 신호를 잡지 못할 경우 어떻게 해야 합니까?</div>
+            <div class="faq-answer">설정 > 개인정보 보호 > 위치 서비스에서 PrecisionEdge의 위치 서비스가 활성화되어 있는지 확인해 주십시오. 신호가 잘 잡히지 않는 경우 앱을 재시작해 보시기 바랍니다. 그날의 첫 GPS 신호 수신에는 최대 30초가 소요될 수 있습니다. 문제가 지속되면 기기를 재시작해 주십시오.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">PrecisionEdge는 보조 GPS(A-GPS)를 사용합니까?</div>
+            <div class="faq-answer">네, 사용합니다. 본 앱은 기기가 위성 신호를 더 빠르게 잡을 수 있도록 Wi-Fi 및 셀룰러 데이터를 다운로드합니다. 이 과정에는 인터넷 연결이 필요하지만, GPS 초기화 속도가 향상됩니다. 최초 신호 수신 후에는 오프라인 상태에서도 앱이 정상 작동합니다.</div>
+        </div>
+    </section>
+
+    <section id="ar-camera">
+        <span class="section-num">02</span>
+        <h2>AR 카메라 문제</h2>
+        <div class="highlight">
+            <p><strong>AR을 사용하려면 호환되는 기기와 적절한 권한 설정이 필요합니다.</strong> 대부분의 최신 iPhone과 iPad에서 ARKit 기반 기능을 지원합니다.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">AR이 작동하지 않는 이유는 무엇입니까?</div>
+            <div class="faq-answer">설정 > 개인정보 보호 > 카메라에서 PrecisionEdge에 카메라 권한이 부여되어 있는지 확인해 주십시오. 사용 중인 기기가 ARKit을 지원하는지(iPhone 6s 이상, iPad Air 2 이상) 확인해 주시기 바랍니다. AR은 표면의 질감이 잘 보이는 충분히 밝은 환경을 필요로 합니다 — 어두운 곳이나 무늬 없는 벽면은 피해 주십시오.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">AR에서 샷이 흐리거나 흔들려 보이는 이유는 무엇입니까?</div>
+            <div class="faq-answer">이는 일반적으로 카메라가 지면을 제대로 추적하지 못할 때 발생합니다. 잔디, 흙, 포장면 등 질감이 다양한 지면을 향하도록 앱을 조준해 주시기 바랍니다. 천천히 움직이며 카메라가 안정될 시간을 주십시오. 카메라를 바로 아래나 하늘 쪽으로 향하지 않도록 주의해 주십시오.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">AR에서 몇 개의 샷까지 시각화할 수 있습니까?</div>
+            <div class="faq-answer">한 라운드당 최대 25개의 샷이 저장됩니다. AR 화면에서는 한 번에 최대 5개의 샷이 그려져 표시됩니다. 샷을 전환하여 AR에서 다양한 샷을 확인하실 수 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">AR을 사용하려면 인터넷 연결이 필요합니까?</div>
+            <div class="faq-answer">아닙니다. AR 렌더링은 전적으로 기기 내에서 처리됩니다. 오프라인 상태에서도 AR 모드를 사용하실 수 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">LiDAR 퍼팅 모드란 무엇입니까?</div>
+            <div class="faq-answer">LiDAR(iPhone 12 Pro/Max, iPhone 13 Pro/Max 및 이후 모델에서 사용 가능)는 퍼팅 그린에 대한 우수한 깊이 감지 기능을 제공합니다. 퍼팅 모드는 LiDAR를 활용해 그린 지형을 센티미터 단위의 정밀도로 매핑하여, 경사를 시각화하고 라인을 더욱 정확하게 읽을 수 있도록 도와드립니다.</div>
+        </div>
+    </section>
+
+    <section id="club-averages">
+        <span class="section-num">03</span>
+        <h2>클럽 평균값</h2>
+        <div class="highlight">
+            <p><strong>본인의 데이터를 기반으로 클럽 프로필을 구축하십시오.</strong> 추적하는 샷이 많아질수록 클럽 평균값의 정확도가 높아집니다.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">PrecisionEdge는 클럽 평균값을 어떻게 계산합니까?</div>
+            <div class="faq-answer">클럽 평균값은 각 클럽으로 기록한 모든 샷을 기반으로 계산됩니다. 본 앱은 해당 클럽의 모든 샷에 대한 평균 캐리 거리를 산출합니다. 더 많은 샷을 기록할수록 평균값의 통계적 신뢰도가 높아집니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">클럽 불일치 경고란 무엇입니까?</div>
+            <div class="faq-answer">선택하신 클럽의 평균 거리가 목표 거리와 일치하지 않을 경우 앱이 알림을 표시합니다. 예를 들어, 7번 아이언의 평균이 165야드인데 홀까지 거리가 145야드라면, PrecisionEdge가 거리에 더 적합한 다른 클럽을 추천해 드립니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">신뢰할 수 있는 클럽 평균값을 만들려면 몇 개의 샷이 필요합니까?</div>
+            <div class="faq-answer">기본 평균값을 확립하려면 클럽당 최소 10~15개의 샷이 권장됩니다. 30개 이상의 샷을 기록하시면 통계적으로 견고한 프로필을 얻을 수 있습니다. 더 많은 샷을 기록하실수록 평균값이 자동으로 업데이트됩니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">클럽 평균값을 수동으로 조정할 수 있습니까?</div>
+            <div class="faq-answer">클럽 평균값은 기록된 샷 데이터로부터 자동으로 계산됩니다. 평균값이 부정확하다고 판단되시면 해당 클럽의 최근 샷을 검토하시거나 이상치를 삭제하여 재조정하실 수 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">각 클럽의 분산 패턴을 확인할 수 있습니까?</div>
+            <div class="faq-answer">네, 가능합니다. AR 화면에서 클럽별로 샷을 필터링하여 해당 클럽으로 친 샷이 코스 위에 어떻게 분포되는지 확인하실 수 있습니다. 이를 통해 일관성 문제나 특정 방향의 편향을 파악하실 수 있습니다.</div>
+        </div>
+    </section>
+
+    <section id="subscription">
+        <span class="section-num">04</span>
+        <h2>구독 및 무료 체험</h2>
+        <div class="highlight">
+            <p><strong>10일 무료 체험. 신용카드 등록 불필요.</strong> 언제든지 취소 가능합니다.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">PrecisionEdge는 정말로 고등학교에 무료로 제공됩니까?</div>
+            <div class="faq-answer">네, 그렇습니다. 고등학교 코치는 학교 인증을 거쳐 팀 전체에 대한 무료 이용 권한을 받으실 수 있습니다. 인증은 학교 이메일 또는 앱 내 관리자 인증 절차를 통해 간단히 진행됩니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">10일 무료 체험은 어떻게 시작합니까?</div>
+            <div class="faq-answer">앱을 실행하시면 자동으로 10일 무료 체험에 등록됩니다. 시작 시 신용카드 등록은 필요하지 않습니다. 체험 종료 전 알림을 보내드리니 구독 또는 취소 여부를 결정하실 수 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">무료 체험이 끝나면 어떻게 됩니까?</div>
+            <div class="faq-answer">앱을 계속 이용하시려면 구독 안내가 표시됩니다. 구독을 취소하시거나 만료되도록 두시더라도 샷 데이터는 기기에 그대로 보관됩니다. 언제든지 다시 구독하실 수 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">구독을 취소할 수 있습니까?</div>
+            <div class="faq-answer">네, 가능합니다. App Store 설정 > [본인 이름] > 구독 > PrecisionEdge에서 구독을 관리하시고 취소하실 수 있습니다. 취소는 즉시 처리되며 다음 갱신일부터 적용됩니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">구독을 취소하면 데이터가 삭제됩니까?</div>
+            <div class="faq-answer">아닙니다. 샷 데이터는 기기에 저장되어 있으며, 구독을 취소하셔도 삭제되지 않습니다. 추후 다시 구독하시면 데이터가 그대로 유지되어 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">앱이 지원하는 언어는 무엇입니까?</div>
+            <div class="faq-answer">PrecisionEdge는 영어, 스페인어, 일본어, 한국어로 제공됩니다. 본 앱은 기기의 언어 설정을 자동으로 적용합니다.</div>
+        </div>
+    </section>
+
+    <section id="coach-mode">
+        <span class="section-num">05</span>
+        <h2>코치 모드 설정</h2>
+        <div class="highlight">
+            <p><strong>코치 모드를 통해 팀 데이터를 한곳에서 관리하실 수 있습니다.</strong> 팀당 최대 12명의 선수를 추적할 수 있습니다.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">코치 모드는 어떻게 활성화합니까?</div>
+            <div class="faq-answer">코치 모드는 인증된 코치에게 제공됩니다. 설정 > 코치 모드로 이동하셔서 인증 절차를 진행해 주십시오. 학교 이메일이나 관리자 자격 증명을 제공해 주셔야 합니다. 인증이 완료되면 팀을 생성하고 선수를 추가하실 수 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">팀에 몇 명의 선수까지 추가할 수 있습니까?</div>
+            <div class="faq-answer">각 팀은 최대 12명의 선수를 보유할 수 있습니다. 더 많은 선수를 관리해야 하는 경우 추가 팀을 생성하실 수 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">선수들은 어떻게 팀에 합류합니까?</div>
+            <div class="faq-answer">선수들은 코치로부터 팀 코드 또는 초대 링크를 받습니다. 본인의 앱에서 코드를 입력하면 팀에 합류할 수 있습니다. 합류 후에는 선수의 샷 데이터가 팀 화면에 동기화됩니다(개인 프라이버시 설정이 적용됩니다).</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">선수들이 서로의 데이터를 볼 수 있습니까?</div>
+            <div class="faq-answer">선수들은 자신의 데이터와 팀 통합 통계(팀 평균, 추세 등)를 볼 수 있지만, 개별 선수 데이터는 기본적으로 비공개로 설정됩니다. 필요하시면 코치 모드에서 공개 설정을 조정하여 선수 간 비교를 허용하실 수 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">코치 모드에서 무엇을 확인할 수 있습니까?</div>
+            <div class="faq-answer">코치 모드에서는 각 선수의 클럽 평균값, 라운드 요약, 분산 패턴, 시간에 따른 진척도, 그리고 팀 전체 통계를 확인하실 수 있습니다. 또한 기록 보관이나 분석을 위해 데이터를 내보낼 수도 있습니다.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">코치를 위한 데모 모드가 제공됩니까?</div>
+            <div class="faq-answer">네, 제공됩니다. 데모 모드를 통해 실제 팀 없이도 샘플 데이터로 코치 모드 기능을 체험하실 수 있습니다. 교육 목적이나 팀에 도입하기 전 앱을 평가하실 때 유용합니다.</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <span class="section-num">06</span>
+        <h2>지원 문의</h2>
+        <p>답변되지 않은 문의 사항이 있으십니까? 언제든지 연락해 주십시오. 도움을 드리기 위해 대기하고 있습니다.</p>
+        <div class="contact-card">
+            <p style="font-size: 16px; color: var(--text-primary); margin-bottom: 12px;"><strong>이메일</strong></p>
+            <p><a href="mailto:enyawrellim@gmail.com">enyawrellim@gmail.com</a></p>
+            <p style="color: var(--text-dim); font-size: 13px; margin-top: 16px;">일반적으로 24시간 이내에 답변해 드립니다.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 PrecisionEdge Golf LLC. 모든 권리 보유.</p>
+        <p style="margin-top: 8px;"><a href="index.html">홈</a> • <a href="privacy.html">개인정보</a></p>
+    </footer>
+
+</div>
+
+<script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            item.classList.toggle('open');
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보 처리방침 — PrecisionEdge</title>
+    <link rel="alternate" hreflang="en" href="https://precisionedgegolf.com/privacy.html" />
+    <link rel="alternate" hreflang="es" href="https://precisionedgegolf.com/es/privacy.html" />
+    <link rel="alternate" hreflang="ja" href="https://precisionedgegolf.com/ja/privacy.html" />
+    <link rel="alternate" hreflang="ko" href="https://precisionedgegolf.com/ko/privacy.html" />
+    <link rel="alternate" hreflang="x-default" href="https://precisionedgegolf.com/privacy.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f0c;
+            --bg-card: #111a14;
+            --bg-card-hover: #162019;
+            --text-primary: #f0f5f1;
+            --text-secondary: #b8c4ba;
+            --text-dim: #8a9b8e;
+            --accent: #4ade80;
+            --accent-dim: rgba(74, 222, 128, 0.12);
+            --border: rgba(74, 222, 128, 0.08);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'Noto Sans KR', 'DM Sans', -apple-system, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; pointer-events: none; z-index: 999; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header { padding: 48px 0 40px; border-bottom: 1px solid var(--border); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; gap: 16px; flex-wrap: wrap; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand-icon { width: 40px; height: 40px; background: var(--accent-dim); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .brand-name { font-family: var(--serif); font-size: 22px; color: var(--text-primary); letter-spacing: -0.02em; }
+        .lang-switch { display: flex; gap: 6px; align-items: center; font-family: var(--sans); font-size: 11px; }
+        .lang-switch a { color: var(--text-dim); padding: 4px 9px; border-radius: 6px; text-decoration: none; transition: all 0.2s; letter-spacing: 1px; }
+        .lang-switch a:hover { color: var(--accent); background: var(--accent-dim); }
+        .lang-switch a.active { color: var(--text-primary); background: var(--bg-card); border: 1px solid var(--border); }
+        h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 48px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.15; color: var(--text-primary); margin-bottom: 16px; }
+        .effective-date { font-size: 14px; color: var(--text-dim); letter-spacing: 0.04em; text-transform: uppercase; }
+        .translation-notice { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 16px 20px; margin-top: 24px; font-size: 13px; color: var(--text-secondary); }
+        .translation-notice strong { color: var(--accent); }
+        .toc { padding: 32px 0; border-bottom: 1px solid var(--border); }
+        .toc-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+        .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        @media (max-width: 520px) { .toc-list { grid-template-columns: 1fr; } }
+        .toc-list a { color: var(--text-secondary); text-decoration: none; font-size: 14px; padding: 8px 12px; border-radius: 8px; display: block; transition: all 0.2s; }
+        .toc-list a:hover { background: var(--accent-dim); color: var(--accent); }
+        .toc-list .toc-num { color: var(--accent); font-weight: 600; margin-right: 8px; font-size: 12px; }
+        section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+        section:last-of-type { border-bottom: none; }
+        h2 { font-family: var(--serif); font-size: 28px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 20px; color: var(--text-primary); }
+        .section-num { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 10px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.06em; }
+        p { color: var(--text-secondary); margin-bottom: 16px; font-size: 15px; }
+        p:last-child { margin-bottom: 0; }
+        .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+        @media (max-width: 520px) { .data-grid { grid-template-columns: 1fr; } }
+        .data-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: background 0.2s; }
+        .data-card:hover { background: var(--bg-card-hover); }
+        .data-card-icon { font-size: 20px; margin-bottom: 10px; }
+        .data-card h3 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+        .data-card p { font-size: 13px; color: var(--text-dim); margin-bottom: 0; line-height: 1.5; }
+        .highlight { background: var(--accent-dim); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 20px 0; }
+        .highlight p { color: var(--text-primary); font-size: 14px; margin-bottom: 0; }
+        .highlight strong { color: var(--accent); }
+        ul { list-style: none; margin: 16px 0; }
+        ul li { position: relative; padding-left: 20px; color: var(--text-secondary); font-size: 15px; margin-bottom: 10px; }
+        ul li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.6; }
+        .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-top: 20px; text-align: center; }
+        .contact-card a { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--accent-dim); transition: border-color 0.2s; }
+        .contact-card a:hover { border-color: var(--accent); }
+        footer { padding: 40px 0; text-align: center; }
+        footer p { font-size: 13px; color: var(--text-dim); }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+        html { scroll-behavior: smooth; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        section { animation: fadeUp 0.5s ease both; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="header-top">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">⛳</div>
+                <span class="brand-name">PrecisionEdge</span>
+            </a>
+            <div class="lang-switch">
+                <a href="/privacy.html">EN</a>
+                <a href="/es/privacy.html">ES</a>
+                <a href="/ja/privacy.html">JA</a>
+                <a href="/ko/privacy.html" class="active">KO</a>
+            </div>
+        </div>
+        <h1>개인정보 처리방침</h1>
+        <p class="effective-date">2026년 2월 25일부터 시행</p>
+        <div class="translation-notice">
+            <strong>번역 안내:</strong> 본 번역은 편의를 위한 것입니다. 각 언어 버전에 차이가 있을 경우 <a href="/privacy.html" style="color: var(--accent);">영어 원본</a>이 법적 구속력을 갖습니다.
+        </div>
+    </header>
+
+    <nav class="toc">
+        <p class="toc-title">목차</p>
+        <ul class="toc-list">
+            <li><a href="#overview"><span class="toc-num">01</span> 개요</a></li>
+            <li><a href="#data-collected"><span class="toc-num">02</span> 수집하는 데이터</a></li>
+            <li><a href="#data-use"><span class="toc-num">03</span> 데이터 이용 방식</a></li>
+            <li><a href="#data-storage"><span class="toc-num">04</span> 데이터 보관</a></li>
+            <li><a href="#third-parties"><span class="toc-num">05</span> 제3자 서비스</a></li>
+            <li><a href="#your-rights"><span class="toc-num">06</span> 이용자의 권리</a></li>
+            <li><a href="#children"><span class="toc-num">07</span> 아동의 개인정보</a></li>
+            <li><a href="#changes"><span class="toc-num">08</span> 방침 변경</a></li>
+            <li><a href="#contact"><span class="toc-num">09</span> 문의처</a></li>
+        </ul>
+    </nav>
+
+    <section id="overview">
+        <span class="section-num">01</span>
+        <h2>개요</h2>
+        <p>PrecisionEdge("당사", "저희" 또는 "우리")는 하와이주 유한책임회사인 PrecisionEdge Golf LLC가 개발한 골프 샷 추적 애플리케이션입니다. 당사는 이용자의 개인정보를 보호하고, 데이터를 처리하는 방식에 있어 투명성을 유지하기 위해 최선을 다하고 있습니다.</p>
+        <div class="highlight">
+            <p><strong>핵심 요약:</strong> 이용자의 샷 데이터는 본인의 기기에만 저장됩니다. 당사는 개인정보를 수집하지 않으며, 이용자를 추적하지 않고, 어떠한 데이터도 제3자에게 판매하지 않습니다.</p>
+        </div>
+    </section>
+
+    <section id="data-collected">
+        <span class="section-num">02</span>
+        <h2>수집하는 데이터</h2>
+        <p>PrecisionEdge는 핵심 기능, 즉 골프 샷 추적과 분산 패턴 분석을 제공하기 위한 목적으로만 다음과 같은 데이터를 수집합니다:</p>
+
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="data-card-icon">📍</div>
+                <h3>위치 데이터</h3>
+                <p>샷의 출발 지점과 낙하 지점의 GPS 좌표로, 캐리 거리와 좌우 편차를 계산하는 데 사용됩니다.</p>
+            </div>
+            <div class="data-card">
+                <div class="data-card-icon">🎥</div>
+                <h3>카메라 및 AR 데이터</h3>
+                <p>AR 오버레이와 샷 시각화를 위한 카메라 접근 권한입니다. 이미지는 기기 내에서 처리되며 외부로 전송되거나 저장되지 않습니다.</p>
+            </div>
+            <div class="data-card">
+                <div class="data-card-icon">⛳</div>
+                <h3>샷 데이터</h3>
+                <p>클럽 선택, 목표 거리, 캐리 거리, 좌우 편차, 방향각 정보입니다. 모두 이용자의 기기에만 저장됩니다.</p>
+            </div>
+            <div class="data-card">
+                <div class="data-card-icon">🌐</div>
+                <h3>코스 데이터</h3>
+                <p>이용 가능한 경우, 거리 자동 입력을 돕기 위해 제3자 골프 코스 API를 통해 대략적인 코스 및 홀 정보를 가져옵니다.</p>
+            </div>
+        </div>
+
+        <p>당사가 <strong>수집하지 않는</strong> 정보는 다음과 같습니다:</p>
+        <ul>
+            <li>이름, 이메일 주소, 연락처 정보</li>
+            <li>기기 식별자 또는 광고 ID</li>
+            <li>HealthKit의 건강 또는 피트니스 데이터</li>
+            <li>웹 검색 기록, 연락처, 사진</li>
+            <li>분석, 광고, 추적 목적의 일체의 데이터</li>
+        </ul>
+    </section>
+
+    <section id="data-use">
+        <span class="section-num">03</span>
+        <h2>데이터 이용 방식</h2>
+        <p>PrecisionEdge가 수집하는 모든 데이터는 다음과 같은 목적으로만 사용됩니다:</p>
+        <ul>
+            <li>샷 거리 및 분산 패턴의 계산과 표시</li>
+            <li>샷 궤적의 AR 시각화 렌더링</li>
+            <li>플레이 중인 골프장의 자동 인식(GPS 및 코스 API 활용)</li>
+            <li>홀 정보를 기반으로 한 거리 추천 제공</li>
+        </ul>
+        <p>당사는 이용자의 데이터를 광고, 마케팅, 프로파일링, 또는 앱의 핵심 기능과 무관한 어떠한 목적으로도 사용하지 않습니다.</p>
+    </section>
+
+    <section id="data-storage">
+        <span class="section-num">04</span>
+        <h2>데이터 보관 및 보존</h2>
+        <div class="highlight">
+            <p><strong>모든 샷 데이터는 이용자의 기기 내 저장소에 로컬로 저장됩니다.</strong> 어떠한 샷 데이터도 당사 서버나 제3자 서버로 전송되지 않습니다.</p>
+        </div>
+        <p>이용자의 데이터는 앱 내 데이터 관리 기능을 통해 직접 삭제하기 전까지 기기에 보관됩니다. 앱을 삭제하시면 로컬에 저장된 모든 데이터가 함께 제거됩니다.</p>
+        <p>당사는 이용자의 개인 데이터를 저장하는 서버를 운영하지 않습니다. 사용자 계정, 클라우드 동기화, 당사 시스템 내 데이터 백업이 일체 존재하지 않습니다.</p>
+    </section>
+
+    <section id="third-parties">
+        <span class="section-num">05</span>
+        <h2>제3자 서비스</h2>
+        <p>PrecisionEdge는 다음과 같은 제3자 서비스를 이용합니다:</p>
+        <ul>
+            <li><strong>골프 코스 API (GolfAPI.io)</strong> — 인근 골프장을 식별하고 홀 및 거리 정보를 가져오는 데 사용됩니다. 코스 식별 목적으로만 이용자의 대략적인 GPS 위치가 해당 서비스에 전송되며, 개인정보는 일체 전달되지 않습니다. GolfAPI.io의 개인정보 처리 관행은 자체 개인정보 처리방침의 적용을 받습니다.</li>
+        </ul>
+        <p>당사는 어떠한 제3자 분석 도구, 광고 네트워크, 충돌 보고 도구, 소셜 미디어 SDK도 통합하지 않습니다.</p>
+        <p>당사는 마케팅 또는 광고 목적으로 이용자의 데이터를 제3자와 공유, 판매, 임대 또는 거래하지 않습니다.</p>
+    </section>
+
+    <section id="your-rights">
+        <span class="section-num">06</span>
+        <h2>이용자의 권리</h2>
+        <p>이용자의 데이터는 전적으로 본인의 기기에 저장되므로, 언제든지 데이터에 대한 완전한 통제권을 가집니다:</p>
+        <ul>
+            <li><strong>열람:</strong> 앱 내에서 언제든지 모든 샷 데이터를 확인할 수 있습니다</li>
+            <li><strong>삭제:</strong> 앱 내 관리 도구를 통해 개별 샷, 특정 클럽의 모든 샷, 또는 전체 데이터를 삭제할 수 있습니다</li>
+            <li><strong>권한 철회:</strong> 기기의 설정 앱에서 언제든지 위치 또는 카메라 접근 권한을 비활성화할 수 있습니다</li>
+            <li><strong>앱 삭제:</strong> 앱을 삭제하면 기기에 저장된 모든 관련 데이터가 함께 제거됩니다</li>
+        </ul>
+        <p>데이터에 관한 문의가 있거나 개인정보 관련 권리를 행사하시려면 아래 연락처로 문의해 주시기 바랍니다.</p>
+    </section>
+
+    <section id="children">
+        <span class="section-num">07</span>
+        <h2>아동의 개인정보</h2>
+        <p>PrecisionEdge는 13세 미만 아동을 대상으로 하지 않습니다. 당사는 아동의 개인정보를 고의로 수집하지 않습니다. 본 앱은 어떠한 이용자로부터도 개인정보를 수집하지 않으므로, 아동 데이터에 대한 별도의 특별 조항은 필요하지 않습니다.</p>
+    </section>
+
+    <section id="changes">
+        <span class="section-num">08</span>
+        <h2>본 방침의 변경</h2>
+        <p>당사는 본 개인정보 처리방침을 수시로 업데이트할 수 있습니다. 변경 사항은 시행일과 함께 본 페이지에 게시됩니다. 본 방침을 주기적으로 검토해 주시기 바랍니다. 변경 후에도 PrecisionEdge를 계속 이용하시는 경우, 개정된 방침에 동의하신 것으로 간주됩니다.</p>
+    </section>
+
+    <section id="contact">
+        <span class="section-num">09</span>
+        <h2>문의처</h2>
+        <p>본 개인정보 처리방침이나 당사의 데이터 처리 관행에 관한 문의 사항이 있으시면 아래로 연락해 주시기 바랍니다:</p>
+        <div class="contact-card">
+            <p style="font-size: 16px; color: var(--text-primary); margin-bottom: 12px;"><strong>PrecisionEdge Golf LLC</strong></p>
+            <p style="margin-bottom: 8px;"><a href="mailto:privacy@precisionedgegolf.com">privacy@precisionedgegolf.com</a></p>
+            <p style="color: var(--text-dim); font-size: 13px;">Hawaiian Paradise Park, 하와이, 미국</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 PrecisionEdge Golf LLC. 모든 권리 보유.</p>
+        <p style="margin-top: 8px;"><a href="index.html">홈</a></p>
+    </footer>
+
+</div>
+
+</body>
+</html>

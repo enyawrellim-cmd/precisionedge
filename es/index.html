@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrecisionEdge — Know Your Game. Own Your Line.</title>
-    <meta name="description" content="PrecisionEdge: AR-powered golf shot tracking for players, coaches, and range days. Pre-drawn course templates, LiDAR putting, team management, dispersion patterns. 4-language support.">
+    <title>PrecisionEdge — Conoce tu juego. Marca tu línea.</title>
+    <meta name="description" content="PrecisionEdge: Seguimiento de tiros de golf con AR para jugadores, entrenadores y días de práctica. Plantillas de hoyos predibujadas, putts con LiDAR, gestión de equipos, patrones de dispersión. Soporte para 4 idiomas.">
     <link rel="alternate" hreflang="en" href="https://precisionedgegolf.com/" />
     <link rel="alternate" hreflang="es" href="https://precisionedgegolf.com/es/" />
     <link rel="alternate" hreflang="ja" href="https://precisionedgegolf.com/ja/" />
@@ -54,7 +54,6 @@
             z-index: 9999;
         }
 
-        /* ---- Nav ---- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
             padding: 1.25rem 2rem;
@@ -83,7 +82,6 @@
         .lang-switch a:hover { color: var(--accent) !important; background: var(--bg-card); }
         .lang-switch a.active { color: var(--text-primary) !important; background: var(--bg-card); border: 1px solid var(--border-accent); }
 
-        /* ---- Hero ---- */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
@@ -149,7 +147,6 @@
             padding: 0.25rem 0.6rem; border-radius: 6px;
         }
 
-        /* ---- Sections ---- */
         section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
         .section-label {
             font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700;
@@ -158,7 +155,6 @@
         h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; margin-bottom: 1rem; }
         .section-desc { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin-bottom: 3.5rem; font-weight: 300; }
 
-        /* ---- Mode Cards ---- */
         .modes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .mode-card {
             background: var(--bg-card); border: 1px solid var(--border);
@@ -197,7 +193,6 @@
         .mode-card.cyan .mode-features li::before { background: var(--cyan); }
         .mode-card.orange .mode-features li::before { background: var(--accent); }
 
-        /* ---- Features Grid ---- */
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .feature-card {
             background: var(--bg-card); border: 1px solid var(--border);
@@ -220,7 +215,6 @@
         .feature-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; }
         .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
 
-        /* ---- Steps ---- */
         .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; counter-reset: step; }
         .step { position: relative; padding: 2rem; counter-increment: step; }
         .step::before {
@@ -231,7 +225,6 @@
         .step h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1.5rem; }
         .step p { color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; }
 
-        /* ---- Course Builder Spotlight ---- */
         .spotlight {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 20px; padding: 3rem; margin-top: 2rem;
@@ -253,7 +246,6 @@
         }
         .template-tile .par { color: #facc15; font-weight: 700; font-size: 0.65rem; display: block; margin-top: 0.25rem; }
 
-        /* ---- CTA / Signup ---- */
         .cta-section { text-align: center; padding: 6rem 2rem; position: relative; }
         .cta-section::before {
             content: ''; position: absolute; bottom: 0; left: 50%;
@@ -290,7 +282,6 @@
         .appstore-btn:hover { transform: translateY(-2px); }
         .appstore-btn svg { width: 28px; height: 28px; }
 
-        /* ---- Footer ---- */
         footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
         .footer-logo { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem; }
         .footer-logo span { color: var(--accent); }
@@ -299,16 +290,15 @@
         footer .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
         footer .footer-links a:hover { color: var(--accent); }
 
-        /* ---- Animations ---- */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* ---- Responsive ---- */
         @media (max-width: 768px) {
             nav { padding: 1rem 1.25rem; }
+            .nav-links { gap: 1rem; }
             .nav-links a:not(.nav-cta) { display: none; }
             section { padding: 4rem 1.25rem; }
             h1 { letter-spacing: -1px; }
@@ -323,45 +313,43 @@
 </head>
 <body>
 
-<!-- Nav -->
 <nav>
     <div class="logo">Precision<span>Edge</span></div>
     <div class="nav-links">
-        <a href="#modes">Modes</a>
-        <a href="#features">Features</a>
-        <a href="#how">How It Works</a>
+        <a href="#modes">Modos</a>
+        <a href="#features">Características</a>
+        <a href="#how">Cómo Funciona</a>
         <div class="lang-switch">
-            <a href="/" class="active">EN</a>
-            <a href="/es/">ES</a>
+            <a href="/">EN</a>
+            <a href="/es/" class="active">ES</a>
             <a href="/ja/">JA</a>
             <a href="/ko/">KO</a>
         </div>
-        <a href="#signup" class="nav-cta">Join Beta</a>
+        <a href="#signup" class="nav-cta">Únete a la Beta</a>
     </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero">
     <div class="hero-badge">
         <span class="dot"></span>
-        Beta — Now Accepting Testers
+        Beta — Aceptando Probadores
     </div>
 
-    <h1>Know your game.<br><span class="accent">Own your line.</span></h1>
+    <h1>Conoce tu juego.<br><span class="accent">Marca tu línea.</span></h1>
 
     <p class="hero-sub">
-        AR-powered shot tracking for players and coaches.
-        Pre-drawn course templates, LiDAR putting, team management,
-        and real dispersion data — all from your iPhone.
+        Seguimiento de tiros con AR para jugadores y entrenadores.
+        Plantillas de hoyos predibujadas, putts con LiDAR, gestión de equipos
+        y datos reales de dispersión — todo desde tu iPhone.
     </p>
 
     <div class="hero-cta-group">
-        <a href="#signup" class="btn btn-primary">Join the Beta</a>
-        <a href="#modes" class="btn btn-ghost">See What's Inside</a>
+        <a href="#signup" class="btn btn-primary">Únete a la Beta</a>
+        <a href="#modes" class="btn btn-ghost">Ver Qué Hay Dentro</a>
     </div>
 
     <div class="hero-visual">
-        <span class="hero-visual-text">App Screenshot Coming Soon</span>
+        <span class="hero-visual-text">Captura de la App Próximamente</span>
     </div>
 
     <div class="lang-badge">
@@ -372,224 +360,211 @@
     </div>
 </section>
 
-<!-- Three Modes -->
 <section id="modes">
     <div class="reveal">
-        <div class="section-label">Three Modes</div>
-        <h2>One app. Three ways to use it.</h2>
+        <div class="section-label">Tres Modos</div>
+        <h2>Una app. Tres formas de usarla.</h2>
         <p class="section-desc">
-            PrecisionEdge opens to a mode selector every time. Pick your role and go.
+            PrecisionEdge se abre con un selector de modo cada vez. Elige tu rol y juega.
         </p>
     </div>
 
     <div class="modes-grid">
         <div class="mode-card green reveal">
             <div class="mode-icon">&#127947;&#65039;</div>
-            <span class="mode-tag">Player</span>
-            <h3>Player Mode</h3>
-            <p>Solo shot tracking with AR and GPS. Build your personal club data one shot at a time.</p>
+            <span class="mode-tag">Jugador</span>
+            <h3>Modo Jugador</h3>
+            <p>Seguimiento individual con AR y GPS. Construye los datos de tus palos un tiro a la vez.</p>
             <ul class="mode-features">
-                <li>AR + GPS carry distance and lateral deviation</li>
-                <li>Club-by-club dispersion patterns</li>
-                <li>AR trajectory overlays on the range</li>
-                <li>2D dispersion maps and target landing views</li>
-                <li>Smart club distance suggestions</li>
+                <li>Distancia de vuelo y desviación lateral con AR + GPS</li>
+                <li>Patrones de dispersión palo por palo</li>
+                <li>Trayectorias AR superpuestas en el campo de práctica</li>
+                <li>Mapas de dispersión 2D y vistas de aterrizaje</li>
+                <li>Sugerencias inteligentes de distancia por palo</li>
             </ul>
         </div>
 
         <div class="mode-card cyan reveal">
             <div class="mode-icon">&#129504;</div>
-            <span class="mode-tag">Coach</span>
-            <h3>Coach Mode</h3>
-            <p>Manage your team, track every player's shots on the range and course, review rounds later.</p>
+            <span class="mode-tag">Entrenador</span>
+            <h3>Modo Entrenador</h3>
+            <p>Gestiona tu equipo, sigue cada tiro de cada jugador en el campo y en la práctica, revisa las rondas más tarde.</p>
             <ul class="mode-features">
-                <li>Team roster with up to 12 color-coded players</li>
-                <li>Range sessions with per-player shot tracking</li>
-                <li>Course play with pre-drawn hole templates</li>
-                <li>Save courses and load them instantly</li>
-                <li>Putting green with numbered shot sequence</li>
-                <li>Session history with full round review</li>
+                <li>Plantilla de equipo con hasta 12 jugadores codificados por color</li>
+                <li>Sesiones de práctica con seguimiento por jugador</li>
+                <li>Juego en campo con plantillas de hoyos predibujadas</li>
+                <li>Guarda los campos y cárgalos al instante</li>
+                <li>Green de putt con secuencia de tiros numerada</li>
+                <li>Historial de sesiones con revisión completa de la ronda</li>
             </ul>
         </div>
 
         <div class="mode-card orange reveal">
             <div class="mode-icon">&#9971;&#65039;</div>
-            <span class="mode-tag">Range Day</span>
-            <h3>Range Day Mode</h3>
-            <p>Quick-fire team sessions at the range. Pick players, assign clubs, and track shots fast.</p>
+            <span class="mode-tag">Día de Práctica</span>
+            <h3>Modo Día de Práctica</h3>
+            <p>Sesiones rápidas en grupo en el campo de práctica. Elige jugadores, asigna palos y registra tiros velozmente.</p>
             <ul class="mode-features">
-                <li>Streamlined for driving range speed</li>
-                <li>Per-player club assignments</li>
-                <li>Rapid shot logging</li>
-                <li>Session naming and review</li>
+                <li>Optimizado para la velocidad del campo de práctica</li>
+                <li>Asignaciones de palos por jugador</li>
+                <li>Registro rápido de tiros</li>
+                <li>Nombrado y revisión de sesiones</li>
             </ul>
         </div>
     </div>
 </section>
 
-<!-- Course Builder Spotlight -->
 <section id="course-builder">
     <div class="reveal">
-        <div class="section-label">Course Play</div>
-        <h2>Build your course in two minutes flat</h2>
+        <div class="section-label">Juego en Campo</div>
+        <h2>Construye tu campo en dos minutos</h2>
         <p class="section-desc">
-            Coach looks at the back of the scorecard, picks a hole layout and yardage
-            for each hole, and locks in the entire course before the round starts.
-            Every hole loads instantly during play.
+            El entrenador mira el reverso de la tarjeta de puntuación, elige un diseño y un yardaje
+            para cada hoyo, y bloquea el campo entero antes de empezar la ronda.
+            Cada hoyo se carga al instante durante el juego.
         </p>
     </div>
 
     <div class="spotlight reveal">
         <div class="spotlight-text">
-            <h3>18 Pre-Drawn Hole Templates</h3>
+            <h3>18 Plantillas de Hoyos Predibujadas</h3>
             <p>
-                Smooth bezier-curved fairways, water hazards, bunkers, and greens.
-                Par 3s, par 4s, par 5s, doglegs left and right, water carries,
-                island greens, and double doglegs — all with organic shapes
-                that look like real holes.
+                Calles con curvas Bezier suaves, obstáculos de agua, búnkeres y greens.
+                Pares 3, pares 4, pares 5, doglegs a izquierda y derecha, carries de agua,
+                greens isla y dobles doglegs — todos con formas orgánicas
+                que parecen hoyos reales.
             </p>
             <p>
-                Save your course for later. Load it next week without rebuilding.
-                Name your rounds and review them from the dashboard
-                with the same template visuals and shot data overlaid.
+                Guarda tu campo para más tarde. Cárgalo la próxima semana sin reconstruir.
+                Nombra tus rondas y revísalas desde el panel
+                con las mismas plantillas visuales y datos de tiros superpuestos.
             </p>
         </div>
         <div class="spotlight-visual">
             <div class="template-grid">
-                <div class="template-tile">Straight<span class="par">PAR 3</span></div>
-                <div class="template-tile">Dogleg L<span class="par">PAR 4</span></div>
-                <div class="template-tile">Dogleg R<span class="par">PAR 4</span></div>
-                <div class="template-tile">Water Carry<span class="par">PAR 3</span></div>
-                <div class="template-tile">Double Dog<span class="par">PAR 5</span></div>
-                <div class="template-tile">Island Green<span class="par">PAR 3</span></div>
-                <div class="template-tile">Long Par 5<span class="par">PAR 5</span></div>
-                <div class="template-tile">Bunker Right<span class="par">PAR 4</span></div>
-                <div class="template-tile">+ 10 more<span class="par">PAR 3-5</span></div>
+                <div class="template-tile">Recto<span class="par">PAR 3</span></div>
+                <div class="template-tile">Dogleg I<span class="par">PAR 4</span></div>
+                <div class="template-tile">Dogleg D<span class="par">PAR 4</span></div>
+                <div class="template-tile">Carry de Agua<span class="par">PAR 3</span></div>
+                <div class="template-tile">Doble Dogleg<span class="par">PAR 5</span></div>
+                <div class="template-tile">Green Isla<span class="par">PAR 3</span></div>
+                <div class="template-tile">Par 5 Largo<span class="par">PAR 5</span></div>
+                <div class="template-tile">Búnker Derecho<span class="par">PAR 4</span></div>
+                <div class="template-tile">+ 10 más<span class="par">PAR 3-5</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Features -->
 <section id="features">
     <div class="reveal">
-        <div class="section-label">Features</div>
-        <h2>Built for golfers who want the truth</h2>
+        <div class="section-label">Características</div>
+        <h2>Hecho para golfistas que quieren la verdad</h2>
         <p class="section-desc">
-            No guessing. No vibes. PrecisionEdge uses your phone's AR camera and GPS
-            to capture real data from real shots on real courses.
+            Sin adivinar. Sin sensaciones. PrecisionEdge usa la cámara AR y el GPS de tu teléfono
+            para capturar datos reales de tiros reales en campos reales.
         </p>
     </div>
 
     <div class="features-grid">
         <div class="feature-card reveal">
             <div class="feature-icon">&#128225;</div>
-            <h3>AR + GPS Shot Capture</h3>
-            <p>Mark your ball, pick your club, hit it, walk to the landing spot.
-               Carry distance and lateral deviation measured automatically.</p>
+            <h3>AR + GPS Captura de Tiros</h3>
+            <p>Marca tu bola, elige el palo, golpéala, camina al lugar de aterrizaje.
+               La distancia de vuelo y la desviación lateral se miden automáticamente.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#127919;</div>
-            <h3>Dispersion Patterns</h3>
-            <p>See your real shot spread for every club — in AR trajectory overlays,
-               2D dispersion maps, and target landing views.</p>
+            <h3>Patrones de Dispersión</h3>
+            <p>Ve la dispersión real de cada palo — en trayectorias AR superpuestas,
+               mapas de dispersión 2D y vistas de aterrizaje.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#128243;</div>
-            <h3>LiDAR Putting</h3>
-            <p>On devices with LiDAR, the putting green comes alive.
-               Precision distance tracking on the green with numbered shot sequences.</p>
+            <h3>Putts con LiDAR</h3>
+            <p>En dispositivos con LiDAR, el green de putt cobra vida.
+               Seguimiento de distancia precisa en el green con secuencias de tiros numeradas.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#128101;</div>
-            <h3>Team Management</h3>
-            <p>Up to 12 color-coded players per team. Track every player's shots,
-               assign clubs, and review per-player stats across sessions.</p>
+            <h3>Gestión de Equipos</h3>
+            <p>Hasta 12 jugadores codificados por color por equipo. Sigue cada tiro de cada jugador,
+               asigna palos y revisa estadísticas por jugador a través de las sesiones.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#128190;</div>
-            <h3>Save Everything</h3>
-            <p>Courses save for reuse. Rounds save with names for future review.
-               Session history lives on the dashboard — tap to replay any round.</p>
+            <h3>Guarda Todo</h3>
+            <p>Los campos se guardan para reutilizarlos. Las rondas se guardan con nombres para revisión futura.
+               El historial de sesiones vive en el panel — toca para reproducir cualquier ronda.</p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">&#127760;</div>
-            <h3>4-Language Support</h3>
-            <p>Full interface in English, Spanish, Japanese, and Korean.
-               Switch languages anytime from any mode.</p>
+            <h3>Soporte para 4 Idiomas</h3>
+            <p>Interfaz completa en inglés, español, japonés y coreano.
+               Cambia de idioma en cualquier momento desde cualquier modo.</p>
         </div>
     </div>
 </section>
 
-<!-- How It Works -->
 <section id="how">
     <div class="reveal">
-        <div class="section-label">How It Works</div>
-        <h2>Pick your mode. Go play.</h2>
+        <div class="section-label">Cómo Funciona</div>
+        <h2>Elige tu modo. A jugar.</h2>
         <p class="section-desc">
-            No launch monitor. No sensors. Just your iPhone on the course or range.
+            Sin monitor de lanzamiento. Sin sensores. Solo tu iPhone en el campo o la práctica.
         </p>
     </div>
 
     <div class="steps">
         <div class="step reveal">
-            <h3>Choose your mode</h3>
-            <p>Player for solo practice, Coach to run your team,
-               or Range Day for quick group sessions at the driving range.</p>
+            <h3>Elige tu modo</h3>
+            <p>Jugador para práctica individual, Entrenador para dirigir tu equipo,
+               o Día de Práctica para sesiones rápidas en grupo en el campo de práctica.</p>
         </div>
         <div class="step reveal">
-            <h3>Set up your session</h3>
-            <p>Player: pick a club and target distance.
-               Coach: build your course from templates or start a range session.
-               Range Day: assign clubs and go.</p>
+            <h3>Configura tu sesión</h3>
+            <p>Jugador: elige un palo y la distancia objetivo.
+               Entrenador: construye tu campo desde plantillas o inicia una sesión de práctica.
+               Día de Práctica: asigna palos y juega.</p>
         </div>
         <div class="step reveal">
-            <h3>Track shots</h3>
-            <p>AR and GPS do the heavy lifting. Tap where the ball lands,
-               and PrecisionEdge calculates carry, deviation, and accuracy.</p>
+            <h3>Registra los tiros</h3>
+            <p>AR y GPS hacen el trabajo pesado. Toca donde aterrice la bola,
+               y PrecisionEdge calcula vuelo, desviación y precisión.</p>
         </div>
         <div class="step reveal">
-            <h3>Review your data</h3>
-            <p>Named sessions save to history. Pull up any round,
-               see shot-by-shot data overlaid on hole templates or dispersion maps.</p>
+            <h3>Revisa tus datos</h3>
+            <p>Las sesiones nombradas se guardan en el historial. Abre cualquier ronda,
+               ve los datos tiro a tiro superpuestos sobre las plantillas de hoyos o mapas de dispersión.</p>
         </div>
     </div>
 </section>
 
-<!-- CTA / Signup -->
 <section class="cta-section" id="signup">
     <div class="reveal">
-        <div class="section-label">Early Access</div>
-        <h2>Get in before launch</h2>
+        <div class="section-label">Acceso Anticipado</div>
+        <h2>Únete antes del lanzamiento</h2>
         <p class="section-desc">
-            Join the TestFlight beta and help shape PrecisionEdge.
-            Available for iPhone with iOS 16+.
+            Únete a la beta de TestFlight y ayuda a moldear PrecisionEdge.
+            Disponible para iPhone con iOS 16+.
         </p>
 
         <form class="signup-form" id="betaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <input type="email" name="email" placeholder="your@email.com" required>
-            <button type="submit" class="btn btn-primary">Join Beta</button>
+            <input type="email" name="email" placeholder="tu@email.com" required>
+            <button type="submit" class="btn btn-primary">Únete a la Beta</button>
         </form>
-        <p class="form-note">No spam. Just a TestFlight invite when your spot is ready.</p>
-        <p class="form-success" id="formSuccess">You're on the list. Watch for a TestFlight invite.</p>
-
-        <!-- App Store button — uncomment when live
-        <a href="https://apps.apple.com/app/YOUR_APP_ID" class="appstore-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.56 2.93 11.3 4.7 7.72C5.57 5.94 7.36 4.86 9.28 4.84C10.56 4.82 11.78 5.72 12.56 5.72C13.34 5.72 14.82 4.62 16.39 4.8C17.07 4.83 18.96 5.09 20.18 6.88C20.07 6.95 17.69 8.33 17.71 11.22C17.74 14.65 20.68 15.8 20.71 15.81C20.69 15.87 20.24 17.42 19.15 19.01L18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
-            Download on the App Store
-        </a>
-        -->
+        <p class="form-note">Sin spam. Solo una invitación de TestFlight cuando tu lugar esté listo.</p>
+        <p class="form-success" id="formSuccess">Estás en la lista. Atento a tu invitación de TestFlight.</p>
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
     <div class="footer-logo">Precision<span>Edge</span></div>
-    <p>&copy; 2026 PrecisionEdge Golf. All rights reserved.</p>
+    <p>&copy; 2026 PrecisionEdge Golf. Todos los derechos reservados.</p>
     <div class="footer-links">
-        <a href="mailto:hello@precisionedge.golf">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="#">Terms</a>
+        <a href="mailto:hello@precisionedge.golf">Contacto</a>
+        <a href="privacy.html">Privacidad</a>
+        <a href="#">Términos</a>
     </div>
 </footer>
 
